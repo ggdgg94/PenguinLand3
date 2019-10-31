@@ -16,10 +16,14 @@
 
 	`git commit -m "git message here"`
 
-	'git push --set-upstream origin <yourName-testing>`
+	`git push --set-upstream origin <yourName-testing>`
 
 7. To pull from master or anyother branch
 
 	`git pull origin <master or any other branch for example daniel-testing>`
 
 8. If there are any conflicts git will let you know or tell me and I'll try to fix it.
+
+9. "Help I messed up" - `git revert <your branch name>`
+
+10. "Help I messed up fixing my mess up" `git revert <your branch name` (to undo your undo)
