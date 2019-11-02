@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Justin/Frefabs/Menu.unity
+    guid: 494f1ad5da4ba31d08f8e62112a1fa83
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 9a91a06a3e3e47b4ab154855e47b5b06
   m_configObjects: {}
