@@ -22,9 +22,9 @@ public class Player : Character
     public void MovePlayer()
     {
         if(direction.x == 0 && direction.y == 0)
-            SetIdleAnimation(direction);
+            SetIdleAnimation(lastDirection);
         else{
-            SetMoveAnimation(direction);
+            SetIdleAnimation(direction);
             Move(direction);
         }
     }

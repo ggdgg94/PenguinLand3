@@ -29,10 +29,10 @@ public class Character : MonoBehaviour
     
     //Related to Location
     public float maxX, minX, maxY, minY; //To be set in Unity Editor
+    public Vector3 tmpPosition;
 
     //Related to Animations
     public Animator animator; 
-    public Vector3 tmpPosition;
 
     public virtual void SetDirection(){}
     public void Move(Vector3 dir)
@@ -46,6 +46,4 @@ public class Character : MonoBehaviour
 
     public void SetIdleAnimation(Vector3 dir){animator.Play(idle[(int)dir.x + 1, (int)dir.y + 1]);}
     public void SetMoveAnimation(Vector3 dir){animator.Play(move[(int)dir.x + 1, (int)dir.y + 1]);}
-
-    
 }
