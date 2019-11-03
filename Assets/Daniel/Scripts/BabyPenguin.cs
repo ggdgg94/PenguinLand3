@@ -14,8 +14,16 @@ public class BabyPenguin : Character
     // Update is called once per frame
     void Update()
     {
-       SetDirection(); 
-       MovePenguin();
+        switch(state){
+            case CharacterState.Normal:
+                CheckLife();
+                SetDirection();
+                MovePenguin(); 
+                break;
+            case CharacterState.Defeated:
+                gameObject.SetActive(false);
+                break;
+        }
     }
 
     public override void SetDirection()
@@ -31,4 +39,8 @@ public class BabyPenguin : Character
         Move(direction);
 
     }
+
+    /* Baby penguin on collision with player that isn't moving will
+     * latch on to the player so idle animations will be used for 
+     * the baby penguins */
 }

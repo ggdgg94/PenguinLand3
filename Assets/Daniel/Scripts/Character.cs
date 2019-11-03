@@ -20,6 +20,10 @@ public class Character : MonoBehaviour
 
     };
 
+    public enum CharacterState { Normal, Dashing, Damaged, Defeated };
+    public CharacterState state;
+
+    public int life; //to be set in the Editor
 
     //Related to Movement
     public float moveSpeed;
@@ -28,7 +32,7 @@ public class Character : MonoBehaviour
     public Vector3 lastDirection;
     
     //Related to Location
-    public float maxX, minX, maxY, minY; //To be set in Unity Editor
+    public float maxX, minX, maxY, minY; //To be set in Editor
     public Vector3 tmpPosition;
 
     //Related to Animations
@@ -46,4 +50,10 @@ public class Character : MonoBehaviour
 
     public void SetIdleAnimation(Vector3 dir){animator.Play(idle[(int)dir.x + 1, (int)dir.y + 1]);}
     public void SetMoveAnimation(Vector3 dir){animator.Play(move[(int)dir.x + 1, (int)dir.y + 1]);}
+    
+    public void CheckLife() 
+    {
+        if(life <= 0)
+          state = CharacterState.Defeated;
+    }
 }

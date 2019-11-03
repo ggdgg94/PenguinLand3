@@ -8,14 +8,24 @@ public class Player : Character
     void Start()
     {
         animator = this.GetComponent<Animator>();
+        state = CharacterState.Normal;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-       SetDirection();
-       MovePlayer(); 
+        switch(state){
+            case CharacterState.Normal:
+                CheckLife();
+                SetDirection();
+                MovePlayer(); 
+                break;
+            case CharacterState.Defeated:
+                gameObject.SetActive(false);
+                break;
+        }
+
     }
 
     public override void SetDirection(){direction.Set(Mathf.RoundToInt(Input.GetAxisRaw("Horizontal")),Mathf.RoundToInt(Input.GetAxisRaw("Vertical")),0);}
