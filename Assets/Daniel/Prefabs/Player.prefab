@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8187710264628643126}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,6 +179,7 @@ MonoBehaviour:
   shootTimer: 0.35
   cooldownTime: 0.35
   gun: {fileID: 6089225988616412429}
+  playerCollider: {fileID: 0}
 --- !u!1001 &2294335096304795371
 PrefabInstance:
   m_ObjectHideFlags: 0
