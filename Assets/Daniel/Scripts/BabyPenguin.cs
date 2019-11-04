@@ -5,6 +5,7 @@ using UnityEngine;
 public class BabyPenguin : Character 
 {
     public Transform player;
+    public Vector3 distance;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,9 @@ public class BabyPenguin : Character
                 CheckLife();
                 SetDirection();
                 MovePenguin(); 
+                break;
+            case CharacterState.Dashing:
+                Latch();
                 break;
             case CharacterState.Defeated:
                 gameObject.SetActive(false);
@@ -39,8 +43,22 @@ public class BabyPenguin : Character
         Move(direction);
 
     }
-
+    public void Latch()
+    {
+        transform.position = player.position - distance;
+    }
     /* Baby penguin on collision with player that isn't moving will
      * latch on to the player so idle animations will be used for 
      * the baby penguins */
+
+     void OnTriggerEnter2D(Collider2D p)
+     {
+        if(p.CompareTag("Player") && player.GetComponent<Player>().state == CharacterState.Normal){
+            distance = (transform.position - player.position)/4;
+            state = CharacterState.Dashing;
+            Debug.Log("Hello");
+        } 
+     }
+     
+    
 }

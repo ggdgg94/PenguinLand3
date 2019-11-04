@@ -13,10 +13,17 @@ public class Player : Character
     private Gun gun; //Set in Editor, should be attached to Player prefab
     [SerializeField]
 
+
+    //Related to Dashing?
+    Collider2D playerCollider;
+    public ArrayList contacts;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = this.GetComponent<Animator>();
+        playerCollider = this.GetComponent<BoxCollider2D>();
+        contacts = new ArrayList();
         state = CharacterState.Normal;
         
     }
@@ -29,7 +36,15 @@ public class Player : Character
                 CheckLife();
                 SetDirection();
                 MovePlayer(); 
+                CheckDash();
                 Shoot();
+                break;
+            case CharacterState.Dashing:
+                Dash();
+                break;
+            case CharacterState.Damaged:
+                Invincible();
+                MovePlayer();
                 break;
             case CharacterState.Defeated:
                 gameObject.SetActive(false);
@@ -61,4 +76,36 @@ public class Player : Character
              }
         }
     }
+
+    void CheckDash()
+    {
+        if(Input.GetKeyDown(KeyCode.J)){
+            state = CharacterState.Dashing;
+            dashSpeed = 50f;
+        }
+    }
+    void Dash()
+    {
+        Move(direction, dashSpeed);
+        dashSpeed -= dashSpeed * 8f * Time.deltaTime;
+        /* 
+        foreach(Collider2D a in contacts){
+            a.SendMessage("Fly");
+
+        }
+        */
+        if(dashSpeed < 1f )
+            state = CharacterState.Normal;
+    }
+
+    void OnTriggerEnter2D(Collider2D p)
+    {
+        
+        if(p.CompareTag("BabyPenguin") && state == CharacterState.Normal){
+            Debug.Log("Babypenguin latched on");
+            moveSpeed -= 1;
+            contacts.Add(p);
+        }
+    }
+
 }
