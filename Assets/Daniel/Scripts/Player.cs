@@ -60,6 +60,7 @@ public class Player : Character
             SetIdleAnimation(lastDirection);
         else{
             SetIdleAnimation(direction);
+            gun.SetDirection(direction);
             Move(direction);
         }
     }
@@ -86,7 +87,7 @@ public class Player : Character
     }
     void Dash()
     {
-        Move(direction, dashSpeed);
+        Move(lastDirection, dashSpeed);
         dashSpeed -= dashSpeed * 8f * Time.deltaTime;
 
         //There is probably a better way to do this

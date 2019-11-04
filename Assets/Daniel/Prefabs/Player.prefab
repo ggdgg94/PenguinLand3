@@ -192,15 +192,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 5428626849162568678, guid: f379a90a1ecbd5c2fa34e8065b508da2,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 605127669262400686, guid: ea4a275af710d8859828ce16760f61bc,
+        type: 3}
     - target: {fileID: 8312869066863371682, guid: f379a90a1ecbd5c2fa34e8065b508da2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.37999916
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 8312869066863371682, guid: f379a90a1ecbd5c2fa34e8065b508da2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5999999
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8312869066863371682, guid: f379a90a1ecbd5c2fa34e8065b508da2,
         type: 3}
@@ -257,12 +263,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5428626849162568678, guid: f379a90a1ecbd5c2fa34e8065b508da2,
-        type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 605127669262400686, guid: ea4a275af710d8859828ce16760f61bc,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f379a90a1ecbd5c2fa34e8065b508da2, type: 3}
 --- !u!4 &7821103020225862473 stripped
