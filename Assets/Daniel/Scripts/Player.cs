@@ -88,23 +88,47 @@ public class Player : Character
     {
         Move(direction, dashSpeed);
         dashSpeed -= dashSpeed * 8f * Time.deltaTime;
-        /* 
-        foreach(Collider2D a in contacts){
-            a.SendMessage("Fly");
 
+        //There is probably a better way to do this
+        if(contacts.Count != 0){
+            foreach(Collider2D a in contacts){
+                a.GetComponentInParent<BabyPenguin>().Fly();
+            }
+            contacts.Clear();
+            moveSpeed = 5;
         }
-        */
+        
         if(dashSpeed < 1f )
             state = CharacterState.Normal;
     }
 
     void OnTriggerEnter2D(Collider2D p)
     {
-        
-        if(p.CompareTag("BabyPenguin") && state == CharacterState.Normal){
-            Debug.Log("Babypenguin latched on");
-            moveSpeed -= 1;
-            contacts.Add(p);
+        if(p.CompareTag("BabyPenguin")){
+            if(state == CharacterState.Normal){
+                moveSpeed = Mathf.Clamp(moveSpeed-1, 0, 5);
+                contacts.Add(p);
+            }
+            if(state == CharacterState.Dashing){
+                p.GetComponentInParent<BabyPenguin>().Crash(dashSpeed);
+            }
+
+        }
+
+        //Baby and Big should be the only exceptions to Penguin so the rest act regular
+        if(p.CompareTag("Penguin") && state == CharacterState.Normal){
+            life -= 1;
+            state = CharacterState.Damaged;
+        }
+
+        if(p.CompareTag("BigPenguin")){
+            if(state == CharacterState.Normal){
+                life -= 2;
+                state = CharacterState.Damaged;
+            }
+            if(state == CharacterState.Dashing){
+                //Bounce here
+            }
         }
     }
 

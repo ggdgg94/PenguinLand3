@@ -21,8 +21,11 @@ public class BabyPenguin : Character
                 SetDirection();
                 MovePenguin(); 
                 break;
-            case CharacterState.Dashing:
+            case CharacterState.Latching:
                 Latch();
+                break;
+            case CharacterState.Bouncing:
+                Fly();
                 break;
             case CharacterState.Defeated:
                 gameObject.SetActive(false);
@@ -41,24 +44,37 @@ public class BabyPenguin : Character
     {
         SetMoveAnimation(direction);
         Move(direction);
-
     }
-    public void Latch()
+    public void Latch(){ transform.position = player.position - distance; }
+    public void Fly()
     {
-        transform.position = player.position - distance;
+        state = CharacterState.Bouncing;
+        dashSpeed -= dashSpeed * 2f * Time.deltaTime;
+        Move(-direction, dashSpeed);
+        transform.Rotate(0,0,Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+        if(dashSpeed < 1f){
+            state = CharacterState.Normal;
+            dashSpeed = 30f;
+            transform.rotation = Quaternion.identity;
+        }
     }
+
     /* Baby penguin on collision with player that isn't moving will
      * latch on to the player so idle animations will be used for 
-     * the baby penguins */
+     * the baby penguins 
+     *
+     * Things we can collide with so far Player and bullets
+     *
+     * Todo add in collisions with other penguins
+     * Look into using a ray cast instead
+     */
 
      void OnTriggerEnter2D(Collider2D p)
      {
         if(p.CompareTag("Player") && player.GetComponent<Player>().state == CharacterState.Normal){
-            distance = (transform.position - player.position)/4;
-            state = CharacterState.Dashing;
-            Debug.Log("Hello");
+            distance = (player.position - transform.position) / 2;
+            state = CharacterState.Latching;
+            dashSpeed = 30f; //prepare to be flung off
         } 
      }
-     
-    
 }

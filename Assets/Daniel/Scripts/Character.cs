@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
 
     };
 
-    public enum CharacterState { Normal, Dashing, Damaged, Defeated };
+    public enum CharacterState { Normal, Dashing, Damaged, Defeated, Bouncing, Latching, Eating };
     public CharacterState state;
 
     //Related to Life
@@ -74,4 +74,11 @@ public class Character : MonoBehaviour
             state = CharacterState.Normal;
         }       
     }
+    public void Crash(float dspe)
+    {
+        state = CharacterState.Bouncing;
+        dashSpeed = dspe;
+        
+    }
+
 }
