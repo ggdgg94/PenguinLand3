@@ -21,4 +21,11 @@ public class SpecialFishBullet : Bullet
         transform.position = (direction.normalized * speed * Time.deltaTime) + transform.position;
 
     }
+
+    void OnTriggerEvent(Collider2D p)
+    {
+        if(p.CompareTag("Penguin") || p.CompareTag("BabyPenguin")){
+            gameObject.SetActive(false);
+        }
+    }
 }

@@ -25,4 +25,5 @@ public abstract class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+
 }
