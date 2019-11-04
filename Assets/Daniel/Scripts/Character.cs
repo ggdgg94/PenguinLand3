@@ -2,48 +2,83 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Character : MonoBehaviour
+public class Character : MonoBehaviour
 {
+
+    //Related to Animations    
     public static readonly string[,] idle = new string[,] {
         {"IdleSW", "IdleW", "IdleNW"},
         {"IdleS", "IdleS", "IdleN"},
         {"IdleSE", "IdleE", "IdleNE"},
 
     };
+
     public static readonly string[,] move = new string[,] {
         {"MoveSW", "MoveW", "MoveNW"},
         {"MoveS", "MoveS", "MoveN"},
         {"MoveSE", "MoveE", "MoveNE"},
+
     };
 
-    public enum CharacterState{ Normal, Dashing, Damaged, Defeated};
-
-
+    public enum CharacterState { Normal, Dashing, Damaged, Defeated, Bouncing, Latching, Eating };
     public CharacterState state;
-    public int life;
 
-    //Movement related variables
-    public float minX, maxX, minY, maxY;
-    public Vector3 direction = new Vector3();
+    //Related to Life
+    public int life; //to be set in the Editor
+    public float invincilbeTimer; //set in Editor
+
+    //Related to Movement
+    public float moveSpeed;
+    public float dashSpeed;
+    public Vector3 direction;
     public Vector3 lastDirection;
+    
+    //Related to Location
+    public float maxX, minX, maxY, minY; //To be set in Editor
     public Vector3 tmpPosition;
-    public Animator animator;
 
+    //Related to Animations
+    public Animator animator; 
 
-    // Start is called before the first frame update
-    public void CheckLife()
+    public virtual void SetDirection(){}
+    public void Move(Vector3 dir)
+    {
+        lastDirection = dir;
+        tmpPosition = (dir.normalized * moveSpeed * Time.deltaTime) + transform.position;
+        tmpPosition.x = Mathf.Clamp(tmpPosition.x, minX, maxX);
+        tmpPosition.y = Mathf.Clamp(tmpPosition.y, minY, maxY);
+        transform.position = tmpPosition;
+    }
+    public void Move(Vector3 dir, float spe)
+    {
+        lastDirection = dir;
+        tmpPosition = (dir.normalized * spe * Time.deltaTime) + transform.position;
+        tmpPosition.x = Mathf.Clamp(tmpPosition.x, minX, maxX);
+        tmpPosition.y = Mathf.Clamp(tmpPosition.y, minY, maxY);
+        transform.position = tmpPosition;
+    }
+    public void SetIdleAnimation(Vector3 dir){animator.Play(idle[(int)dir.x + 1, (int)dir.y + 1]);}
+    public void SetMoveAnimation(Vector3 dir){animator.Play(move[(int)dir.x + 1, (int)dir.y + 1]);}
+    
+    public void CheckLife() 
     {
         if(life <= 0)
-            state = CharacterState.Defeated;
+          state = CharacterState.Defeated;
     }
-    public virtual void SetDirection(){}
-    public virtual void SetAnimation(Vector3 dir){}
-    public virtual void Move(Vector3 dir, float spe)
+
+    public void Invincible()
     {
-            lastDirection = dir;
-            tmpPosition = (dir.normalized * spe * Time.deltaTime) + transform.position;
-            tmpPosition.x = Mathf.Clamp(tmpPosition.x, minX, maxX);
-            tmpPosition.y = Mathf.Clamp(tmpPosition.y, minY, maxY);
-            transform.position = tmpPosition;
+        invincilbeTimer -= Time.deltaTime;
+        if(invincilbeTimer < 0f){
+            invincilbeTimer = 1.0f;
+            state = CharacterState.Normal;
+        }       
     }
+    public void Crash(float dspe)
+    {
+        state = CharacterState.Bouncing;
+        dashSpeed = dspe;
+        
+    }
+
 }
