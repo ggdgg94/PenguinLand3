@@ -131,6 +131,10 @@ public class Player : Character
                 //Bounce here
             }
         }
+
+        if(p.CompareTag("BItem")){
+            gun.SetBullet(p.GetComponentInParent<Item>().item);
+        }
     }
 
 }

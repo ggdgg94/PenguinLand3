@@ -51,7 +51,7 @@ public class BabyPenguin : Character
         state = CharacterState.Bouncing;
         dashSpeed -= dashSpeed * 2f * Time.deltaTime;
         Move(-direction, dashSpeed);
-        transform.Rotate(0,0,Mathf.Atan2(Mathf.Abs(direction.y), direction.x) * Mathf.Rad2Deg);
+        transform.Rotate(0,0,Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
         if(dashSpeed < 1f){
             state = CharacterState.Normal;
             dashSpeed = 30f;
