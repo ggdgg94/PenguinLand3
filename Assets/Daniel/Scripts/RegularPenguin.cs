@@ -25,7 +25,8 @@ public class RegularPenguin : Character
         }
         
     }
-    void MovePenguin(){
+    void MovePenguin()
+    {
         SetMoveAnimation(direction);
         Move(direction);
         if(transform.position.x == minX){

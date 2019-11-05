@@ -9,8 +9,10 @@ public abstract class Bullet : MonoBehaviour
     public float speed = 25f;
     public float deactivateTimer = 3f;
     public Vector3 direction;
+    public SpriteRenderer r;
     void Start()
     {
+        r = this.GetComponent<SpriteRenderer>();
         Invoke("DeactivateGameObject", deactivateTimer);    
     }
 
@@ -24,6 +26,5 @@ public abstract class Bullet : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-
 
 }
