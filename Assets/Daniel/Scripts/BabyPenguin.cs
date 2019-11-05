@@ -54,6 +54,7 @@ public class BabyPenguin : Character
     public void Latch()
     { 
         transform.position = player.position - distance; 
+        SetIdleAnimation(direction);
         if(player.GetComponent<Player>().state == CharacterState.Dashing)
             Fly();
     }
