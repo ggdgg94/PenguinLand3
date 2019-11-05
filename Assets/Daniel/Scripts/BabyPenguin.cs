@@ -9,6 +9,8 @@ public class BabyPenguin : Character
     // Start is called before the first frame update
     void Start()
     {
+        if(autoFill)
+            SetUpLimits();
        animator = this.GetComponent<Animator>(); 
        player = FindObjectOfType<Player>().transform;
     }
@@ -32,6 +34,7 @@ public class BabyPenguin : Character
                 break;
             case CharacterState.Defeated:
                 gameObject.SetActive(false);
+                Destroy(this.gameObject, 3f);
                 break;
         }
     }
@@ -48,7 +51,12 @@ public class BabyPenguin : Character
         SetMoveAnimation(direction);
         Move(direction);
     }
-    public void Latch(){ transform.position = player.position - distance; }
+    public void Latch()
+    { 
+        transform.position = player.position - distance; 
+        if(player.GetComponent<Player>().state == CharacterState.Dashing)
+            Fly();
+    }
     public void Fly()
     {
         state = CharacterState.Bouncing;

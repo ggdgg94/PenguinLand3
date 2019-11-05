@@ -7,8 +7,11 @@ public class RegularPenguin : Character
     // Start is called before the first frame update
     void Start()
     {
+        if(autoFill)
+            SetUpLimits();
         SetDirection();        
         animator = this.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame

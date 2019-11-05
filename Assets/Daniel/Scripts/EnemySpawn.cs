@@ -8,10 +8,13 @@ public class EnemySpawn : MonoBehaviour{
     public float timer = 1f;
     private Vector3 position;
     public GameObject penguinPrefab;
+    Camera p;
     void Start(){
-        position = new Vector3(posX, 0f, 0f);
+        p = FindObjectOfType<Camera>();
+        minY = -(p.scaledPixelHeight / 10);
+        maxY = p.scaledPixelHeight / 10;
+        position = transform.position;
         Invoke("SpawnPenguins", timer);
-        Debug.Log("Spawn at " + position.y);
 
     }
 

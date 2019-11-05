@@ -10,6 +10,8 @@ public class SlidingPenguin : Character
     // Start is called before the first frame update
     void Start()
     {
+        if(autoFill)
+            SetUpLimits();
         player = FindObjectOfType<Player>().transform;
         SetDirection(); 
        //For now, we don't need this

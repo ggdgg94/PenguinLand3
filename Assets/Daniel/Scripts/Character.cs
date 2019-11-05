@@ -23,6 +23,8 @@ public class Character : MonoBehaviour
     public enum CharacterState { Normal, Dashing, Damaged, Defeated, Bouncing, Latching, Eating };
     public CharacterState state;
 
+    public bool autoFill = false;
+
     //Related to Life
     public int life; //to be set in the Editor
     public float invincilbeTimer; //set in Editor
@@ -41,6 +43,7 @@ public class Character : MonoBehaviour
     public Animator animator; 
 
     public virtual void SetDirection(){}
+
     public void Move(Vector3 dir)
     {
         lastDirection = dir;
@@ -79,6 +82,18 @@ public class Character : MonoBehaviour
         state = CharacterState.Bouncing;
         dashSpeed = dspe;
         
+    }
+
+    public void SetUpLimits()
+    {
+        Debug.Log("Set up has been called");
+        Camera c = FindObjectOfType<Camera>();
+        float height = c.scaledPixelHeight;
+        float width = c.scaledPixelWidth;
+        minY = -(height / 100) - 2;
+        maxY = (height / 100) + 2;
+        minX = -(width / 100) - 2;
+        maxX = (width / 100) + 2;
     }
 
 }

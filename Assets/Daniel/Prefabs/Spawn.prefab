@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753325520248034640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.65, y: 0.07, z: -19.80519}
+  m_LocalPosition: {x: 25.65, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minY: -3.84
   maxY: 3.25
-  posX: 22
-  timer: 2
-  penguinPrefab: {fileID: 7585296021959585704, guid: 5b3add07c62d1823a9faddd05e6553d8,
+  posX: -12
+  timer: 13
+  penguinPrefab: {fileID: 8073132856269836205, guid: df6467630ee839236b571a2dd3d05bdc,
     type: 3}
