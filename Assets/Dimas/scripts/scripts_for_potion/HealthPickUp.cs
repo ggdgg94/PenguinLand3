@@ -3,7 +3,7 @@
 public class HealthPickUp : MonoBehaviour
 {
     Character playerHealth;
-    public int bonusHealth = 10;
+    public int bonusHealth =1;
 
     void Awake()
     {
@@ -11,13 +11,9 @@ public class HealthPickUp : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(playerHealth.life < 100)
-        {
+    {       
             Destroy(gameObject);
-            playerHealth.life = playerHealth.life + bonusHealth; 
-
-        }
+            playerHealth.life = playerHealth.life + bonusHealth;  
     }
 
 }
