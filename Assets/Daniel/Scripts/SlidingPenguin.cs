@@ -5,12 +5,13 @@ using UnityEngine;
 public class SlidingPenguin : Character 
 {
     [SerializeField]
-    Transform player;
+    public Transform player;
     Collider2D penguinBox;
     // Start is called before the first frame update
     void Start()
     {
-       SetDirection(); 
+        player = FindObjectOfType<Player>().transform;
+        SetDirection(); 
        //For now, we don't need this
        //animator = this.GetComponent<Animator>();
     }

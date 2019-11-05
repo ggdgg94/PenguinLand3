@@ -10,6 +10,7 @@ public class BabyPenguin : Character
     void Start()
     {
        animator = this.GetComponent<Animator>(); 
+       player = FindObjectOfType<Player>().transform;
     }
 
     // Update is called once per frame
@@ -22,9 +23,11 @@ public class BabyPenguin : Character
                 MovePenguin(); 
                 break;
             case CharacterState.Latching:
+                CheckLife();
                 Latch();
                 break;
             case CharacterState.Bouncing:
+                CheckLife();
                 Fly();
                 break;
             case CharacterState.Defeated:
@@ -76,5 +79,8 @@ public class BabyPenguin : Character
             state = CharacterState.Latching;
             dashSpeed = 30f; //prepare to be flung off
         } 
+        if(p.CompareTag("Bullet") && state != CharacterState.Latching){
+            life -= 1;
+        }
      }
 }

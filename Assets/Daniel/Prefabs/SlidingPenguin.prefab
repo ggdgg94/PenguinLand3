@@ -144,14 +144,14 @@ MonoBehaviour:
   state: 0
   life: 1
   invincilbeTimer: 0
-  moveSpeed: 6
+  moveSpeed: 15
   dashSpeed: 50
   direction: {x: 0, y: 0, z: 0}
   lastDirection: {x: 0, y: 0, z: 0}
-  maxX: 8.42
-  minX: -8.42
+  maxX: 23.5
+  minX: -23
   maxY: 3.33
-  minY: -3.33
+  minY: -3.36
   tmpPosition: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   player: {fileID: 0}

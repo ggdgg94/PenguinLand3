@@ -21,7 +21,6 @@ public class EnemySpawn : MonoBehaviour{
 
     void SpawnPenguins(){
         position.y = Random.Range(minY, maxY);
-        Debug.Log("Spawn at " + position.y);
 
         Instantiate(penguinPrefab, position, Quaternion.Euler(0f,0f,0f));
         Invoke("SpawnPenguins", timer);

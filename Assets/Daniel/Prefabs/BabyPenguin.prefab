@@ -165,13 +165,13 @@ MonoBehaviour:
   state: 0
   life: 1
   invincilbeTimer: 0
-  moveSpeed: 2
+  moveSpeed: 3
   dashSpeed: 0
   direction: {x: 0, y: 0, z: 0}
   lastDirection: {x: 0, y: 0, z: 0}
-  maxX: 8.42
-  minX: -8.42
-  maxY: 3.33
+  maxX: 23.5
+  minX: -11.35
+  maxY: 4.78
   minY: -3.33
   tmpPosition: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
