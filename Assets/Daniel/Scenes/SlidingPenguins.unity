@@ -380,6 +380,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7585296021959585704, guid: 5b3add07c62d1823a9faddd05e6553d8,
         type: 3}
+    - target: {fileID: 753325520248034646, guid: 9946d9a8f12f8616699934f5024967f7,
+        type: 3}
+      propertyPath: timer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9946d9a8f12f8616699934f5024967f7, type: 3}
 --- !u!1001 &1025171195
@@ -461,6 +466,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7585296021959585704, guid: 5b3add07c62d1823a9faddd05e6553d8,
         type: 3}
+    - target: {fileID: 753325520248034646, guid: 9946d9a8f12f8616699934f5024967f7,
+        type: 3}
+      propertyPath: timer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9946d9a8f12f8616699934f5024967f7, type: 3}
 --- !u!1001 &1581409713
@@ -542,6 +552,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7585296021959585704, guid: 5b3add07c62d1823a9faddd05e6553d8,
         type: 3}
+    - target: {fileID: 753325520248034646, guid: 9946d9a8f12f8616699934f5024967f7,
+        type: 3}
+      propertyPath: timer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9946d9a8f12f8616699934f5024967f7, type: 3}
 --- !u!1001 &1911368396
@@ -623,6 +638,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7585296021959585704, guid: 5b3add07c62d1823a9faddd05e6553d8,
         type: 3}
+    - target: {fileID: 753325520248034646, guid: 9946d9a8f12f8616699934f5024967f7,
+        type: 3}
+      propertyPath: timer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9946d9a8f12f8616699934f5024967f7, type: 3}
 --- !u!1001 &1953216050
