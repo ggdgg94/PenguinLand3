@@ -22,9 +22,11 @@ public class RegularFishBullet : Bullet
 
     }
 
-    void OnTriggerEvent(Collider2D p)
+    void OnTriggerEnter2D(Collider2D p)
     {
+        Debug.Log("Here!");
         if(p.CompareTag("Penguin") || p.CompareTag("BabyPenguin")){
+            Debug.Log("Hit!");
             gameObject.SetActive(false);
         }
     }

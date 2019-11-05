@@ -43,7 +43,9 @@ public class Player : Character
                 Dash();
                 break;
             case CharacterState.Damaged:
+                CheckLife();
                 Invincible();
+                SetDirection();
                 MovePlayer();
                 break;
             case CharacterState.Defeated:
