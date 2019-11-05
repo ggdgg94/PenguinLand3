@@ -19,7 +19,7 @@ AudioMixerController:
   - guid: 8ff549ed2a0fb2d42a6ad14d182dd50d
     name: MyExposedParam 1
   - guid: ff71d55c52f1e2745b8120a341982bc2
-    name: MyExposedParam
+    name: MusicVol
   m_AudioMixerGroupViews:
   - guids:
     - f590fab2a5b429d48bffa3f8bb7e0a41
