@@ -95,5 +95,15 @@ public class Character : MonoBehaviour
         minX = -(width / 100) - 2;
         maxX = (width / 100) + 2;
     }
-
+    public void SetUpLimits(float dist)
+    {
+        Debug.Log("Set up has been called");
+        Camera c = FindObjectOfType<Camera>();
+        float height = c.scaledPixelHeight;
+        float width = c.scaledPixelWidth;
+        minY = -(height / 100) - dist;
+        maxY = (height / 100) + dist;
+        minX = -(width / 100) - dist;
+        maxX = (width / 100) + dist;
+    }
 }
