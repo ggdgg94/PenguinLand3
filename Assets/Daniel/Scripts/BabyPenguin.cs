@@ -9,7 +9,10 @@ public class BabyPenguin : Character
     // Start is called before the first frame update
     void Start()
     {
+        if(autoFill)
+            SetUpLimits();
        animator = this.GetComponent<Animator>(); 
+       player = FindObjectOfType<Player>().transform;
     }
 
     // Update is called once per frame
@@ -22,13 +25,16 @@ public class BabyPenguin : Character
                 MovePenguin(); 
                 break;
             case CharacterState.Latching:
+                CheckLife();
                 Latch();
                 break;
             case CharacterState.Bouncing:
+                CheckLife();
                 Fly();
                 break;
             case CharacterState.Defeated:
                 gameObject.SetActive(false);
+                Destroy(this.gameObject, 3f);
                 break;
         }
     }
@@ -45,7 +51,13 @@ public class BabyPenguin : Character
         SetMoveAnimation(direction);
         Move(direction);
     }
-    public void Latch(){ transform.position = player.position - distance; }
+    public void Latch()
+    { 
+        transform.position = player.position - distance; 
+        SetIdleAnimation(direction);
+        if(player.GetComponent<Player>().state == CharacterState.Dashing)
+            Fly();
+    }
     public void Fly()
     {
         state = CharacterState.Bouncing;
@@ -76,5 +88,8 @@ public class BabyPenguin : Character
             state = CharacterState.Latching;
             dashSpeed = 30f; //prepare to be flung off
         } 
+        if(p.CompareTag("Bullet") && state != CharacterState.Latching){
+            life -= 1;
+        }
      }
 }
