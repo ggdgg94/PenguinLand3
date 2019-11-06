@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
         if (paused)
         {
             PauseUI.SetActive(true);
-            Time.timeScale = 0;
+            Time.timeScale = 0.000001f;
         }
 
         if (!paused)

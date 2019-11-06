@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7585296021959585718}
   m_Layer: 0
   m_Name: SlidingPenguin
-  m_TagString: Untagged
+  m_TagString: Penguin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,16 +142,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  autoFill: 1
   life: 1
   invincilbeTimer: 0
-  moveSpeed: 6
+  moveSpeed: 15
   dashSpeed: 50
   direction: {x: 0, y: 0, z: 0}
   lastDirection: {x: 0, y: 0, z: 0}
-  maxX: 8.42
-  minX: -8.42
+  maxX: 23.5
+  minX: -23
   maxY: 3.33
-  minY: -3.33
+  minY: -3.36
   tmpPosition: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   player: {fileID: 0}

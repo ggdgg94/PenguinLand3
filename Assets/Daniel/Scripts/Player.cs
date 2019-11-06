@@ -12,6 +12,7 @@ public class Player : Character
     [SerializeField]
     private Gun gun; //Set in Editor, should be attached to Player prefab
     [SerializeField]
+    GameObject loseUI;
 
 
     //Related to Dashing?
@@ -25,6 +26,8 @@ public class Player : Character
         playerCollider = this.GetComponent<BoxCollider2D>();
         contacts = new ArrayList();
         state = CharacterState.Normal;
+        if(autoFill)
+            SetUpLimits();
         
     }
 
@@ -49,7 +52,8 @@ public class Player : Character
                 MovePlayer();
                 break;
             case CharacterState.Defeated:
-                gameObject.SetActive(false);
+                loseUI.SetActive(true);
+                //Die();
                 break;
         }
 
@@ -93,6 +97,7 @@ public class Player : Character
         dashSpeed -= dashSpeed * 8f * Time.deltaTime;
 
         //There is probably a better way to do this
+        /* 
         if(contacts.Count != 0){
             foreach(Collider2D a in contacts){
                 a.GetComponentInParent<BabyPenguin>().Fly();
@@ -100,6 +105,8 @@ public class Player : Character
             contacts.Clear();
             moveSpeed = 5;
         }
+        */
+        moveSpeed = 5;
         
         if(dashSpeed < 1f )
             state = CharacterState.Normal;
@@ -110,7 +117,7 @@ public class Player : Character
         if(p.CompareTag("BabyPenguin")){
             if(state == CharacterState.Normal){
                 moveSpeed = Mathf.Clamp(moveSpeed-1, 0, 5);
-                contacts.Add(p);
+                //contacts.Add(p);
             }
             if(state == CharacterState.Dashing){
                 p.GetComponentInParent<BabyPenguin>().Crash(dashSpeed);

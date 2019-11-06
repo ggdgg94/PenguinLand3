@@ -5,12 +5,15 @@ using UnityEngine;
 public class SlidingPenguin : Character 
 {
     [SerializeField]
-    Transform player;
+    public Transform player;
     Collider2D penguinBox;
     // Start is called before the first frame update
     void Start()
     {
-       SetDirection(); 
+        if(autoFill)
+            SetUpLimits(20);
+        player = FindObjectOfType<Player>().transform;
+        SetDirection(); 
        //For now, we don't need this
        //animator = this.GetComponent<Animator>();
     }
@@ -33,17 +36,23 @@ public class SlidingPenguin : Character
     {
         //SetMoveAnimation(direction);
         Move(direction);
-        if(transform.position.x == minX)
+        if(transform.position.x == minX){
             gameObject.SetActive(false);
+            Destroy(this.gameObject, 3f);
+        }
         
-        if(transform.position.x == maxX)
+        if(transform.position.x == maxX){
             gameObject.SetActive(false);
-
-        if(transform.position.y == minY)
+            Destroy(this.gameObject, 3f);
+        }
+        if(transform.position.y == minY){
             gameObject.SetActive(false);
-
-        if(transform.position.y == maxY)
+            Destroy(this.gameObject, 3f);
+        }
+        if(transform.position.y == maxY){
             gameObject.SetActive(false);
+            Destroy(this.gameObject, 3f);
+        }
     }
 
     public override void SetDirection()
