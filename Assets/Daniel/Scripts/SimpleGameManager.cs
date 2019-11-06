@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class SimpleGameManager : MonoBehaviour
 {
 
+    [Header("Characters")]
     //Prefabs set in Editor
     [SerializeField]
-    Player player;
+    Player playerPrefab;
     [SerializeField]
     Character regularPenguin;
     [SerializeField]
@@ -16,11 +17,20 @@ public class SimpleGameManager : MonoBehaviour
     [SerializeField]
     Character babyPenguin;
 
+    [Header("UI")]
+    [SerializeField]
+    GameObject pauseUI;
+    bool paused = false;
+    [SerializeField]
+    GameObject loseUI;
+
+    Player player; 
     Vector3 spawnPoint = new Vector3(6,-2,0);
     Character[] horde;
     void Start()
     {
-        Instantiate(player);
+        player = Instantiate(playerPrefab);
+        player.gameObject.SetActive(true);
         horde = new Character[30];
         for(int i = 0; i < horde.Length; ++i){
             horde[i] = Instantiate(regularPenguin);
@@ -68,9 +78,51 @@ public class SimpleGameManager : MonoBehaviour
     void Update()
     {
         Spawn2();
+        HandlePause();
+        CheckGameState();
         
         //Spawn(regularPenguin);
 
         
+    }
+    void CheckGameState()
+    {
+            Debug.Log("CALLED" + player.state);
+        if(player.state == Character.CharacterState.Defeated){
+            Debug.Log("CALLED");
+            loseUI.gameObject.SetActive(true);
+            Time.timeScale = 0f; //psuedo pause
+        }
+    }
+
+    public void Resume()
+    {
+        paused = false;
+        pauseUI.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Game");
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    void HandlePause()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            paused = !paused;
+            if(paused){
+                pauseUI.SetActive(true);
+                Time.timeScale = 0f;
+            }
+        }
     }
 }
