@@ -106,4 +106,9 @@ public class Character : MonoBehaviour
         minX = -(width / 100) - dist;
         maxX = (width / 100) + dist;
     }
+    public void Die()
+    {
+        gameObject.SetActive(false);
+        Destroy(this.gameObject, 3f);
+    }
 }

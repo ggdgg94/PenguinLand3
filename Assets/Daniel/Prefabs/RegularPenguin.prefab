@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  autoFill: 1
   life: 2
   invincilbeTimer: 0
   moveSpeed: 4

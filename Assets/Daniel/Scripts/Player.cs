@@ -12,6 +12,7 @@ public class Player : Character
     [SerializeField]
     private Gun gun; //Set in Editor, should be attached to Player prefab
     [SerializeField]
+    GameObject loseUI;
 
 
     //Related to Dashing?
@@ -51,7 +52,8 @@ public class Player : Character
                 MovePlayer();
                 break;
             case CharacterState.Defeated:
-                gameObject.SetActive(false);
+                loseUI.SetActive(true);
+                //Die();
                 break;
         }
 

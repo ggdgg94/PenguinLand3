@@ -23,7 +23,8 @@ public class RegularPenguin : Character
             MovePenguin();
             break;
             case CharacterState.Defeated:
-            gameObject.SetActive(false);
+            ScoreScript.scoreValue += 1;
+            Die();
             break;
         }
         
