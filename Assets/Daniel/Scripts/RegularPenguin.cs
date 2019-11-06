@@ -8,7 +8,7 @@ public class RegularPenguin : Character
     void Start()
     {
         if(autoFill)
-            SetUpLimits();
+            SetUpLimits(20);
         SetDirection();        
         animator = this.GetComponent<Animator>();
 
@@ -34,7 +34,7 @@ public class RegularPenguin : Character
         SetMoveAnimation(direction);
         Move(direction);
         if(transform.position.x == minX){
-            gameObject.SetActive(false);
+            Die();
         }
     }
     public override void SetDirection()

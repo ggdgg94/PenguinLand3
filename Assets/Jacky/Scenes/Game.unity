@@ -9132,6 +9132,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8187710264628643126, guid: 149af4dfc285ffe47a48ab9d895b3447,
+        type: 3}
+      propertyPath: maxX
+      value: 23.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187710264628643126, guid: 149af4dfc285ffe47a48ab9d895b3447,
+        type: 3}
+      propertyPath: minX
+      value: -11.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187710264628643126, guid: 149af4dfc285ffe47a48ab9d895b3447,
+        type: 3}
+      propertyPath: minY
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187710264628643126, guid: 149af4dfc285ffe47a48ab9d895b3447,
+        type: 3}
+      propertyPath: loseUI
+      value: 
+      objectReference: {fileID: 1533550963}
+    - target: {fileID: 8187710264628643126, guid: 149af4dfc285ffe47a48ab9d895b3447,
+        type: 3}
+      propertyPath: autoFill
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8187710264628643131, guid: 149af4dfc285ffe47a48ab9d895b3447,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9217,26 +9242,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 0d45f44ee196681e5908504a3bec1bb5,
         type: 3}
-    - target: {fileID: 8187710264628643126, guid: 149af4dfc285ffe47a48ab9d895b3447,
-        type: 3}
-      propertyPath: maxX
-      value: 23.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8187710264628643126, guid: 149af4dfc285ffe47a48ab9d895b3447,
-        type: 3}
-      propertyPath: minX
-      value: -11.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 8187710264628643126, guid: 149af4dfc285ffe47a48ab9d895b3447,
-        type: 3}
-      propertyPath: minY
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8187710264628643126, guid: 149af4dfc285ffe47a48ab9d895b3447,
-        type: 3}
-      propertyPath: loseUI
-      value: 
-      objectReference: {fileID: 1533550963}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149af4dfc285ffe47a48ab9d895b3447, type: 3}
 --- !u!1 &1608813046
@@ -10475,6 +10480,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameandUICamera
       objectReference: {fileID: 0}
+    - target: {fileID: 8466706457564742206, guid: c08a93201834486149ff29c0fac0e3f4,
+        type: 3}
+      propertyPath: PauseUI
+      value: 
+      objectReference: {fileID: 362509934}
     - target: {fileID: 8466706457564742336, guid: c08a93201834486149ff29c0fac0e3f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10530,11 +10540,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8466706457564742206, guid: c08a93201834486149ff29c0fac0e3f4,
-        type: 3}
-      propertyPath: PauseUI
-      value: 
-      objectReference: {fileID: 362509934}
     - target: {fileID: 8466706457564742337, guid: c08a93201834486149ff29c0fac0e3f4,
         type: 3}
       propertyPath: HeartUI
