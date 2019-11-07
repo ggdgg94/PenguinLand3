@@ -592,15 +592,20 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1627455971749504127}
+    - target: {fileID: 8644494802363120493, guid: c51ecd1ef33df17d6868cd44679782f1,
+        type: 3}
+      propertyPath: demo1
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8644494802363120494, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.2299805
+      value: 1.71
       objectReference: {fileID: 0}
     - target: {fileID: 8644494802363120494, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.730011
+      value: 6.32
       objectReference: {fileID: 0}
     - target: {fileID: 8644494802363120494, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}

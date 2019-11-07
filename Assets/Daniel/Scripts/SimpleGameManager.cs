@@ -93,11 +93,15 @@ public class SimpleGameManager : MonoBehaviour
 
         if(demo1){
             SetUpPlayer();
-            SetUpPlayerPara(0,0,0,0);
-            SetUpPenguinPara(regularPenguin, 0,0,0,0);
+            SetUpPlayerPara(-24f,30f,-7f,-1f);
+            SetUpPenguinPara(regularPenguin, -24f, 24f, -7f, -1f);
             timerTime = 15f;
 
         }else if(demo2){
+            SetUpPlayer();
+            SetUpPlayerPara(-24f,30f,-7f,-1f);
+            SetUpPenguinPara(babyPenguin, 0, 0, 0, 0);
+            feedWinCondition = 20;
 
         }else if(demo3){
 
@@ -122,6 +126,7 @@ public class SimpleGameManager : MonoBehaviour
                 }
             }
         }
+        Debug.Log(player.minX);
     }
 
     void SetUpPlayer()
@@ -151,6 +156,7 @@ public class SimpleGameManager : MonoBehaviour
     float spawnb = 0.4f;
     float spawnf = 0.9f;
     Vector3 spawnRPoint = new Vector3(22f, 0f, 0f);
+    Vector3 spawnBPoint = new Vector3(0f, -22f, 0f);
     void SetUpPlayerPara(float x1, float x2, float y1, float y2)
     {
         player.minX = x1;
@@ -169,17 +175,53 @@ public class SimpleGameManager : MonoBehaviour
     void SpawnRegulars()
     {
         spawnr -= Time.deltaTime;
-        if(spawntime < 0){
-            spawnPoint.y = Random.Range(player.minY, player.maxY); //may need to set max and min manually
-            spawnr = 0.3f;
+        if(spawnr < 0){
+            spawnRPoint.y = Random.Range(player.minY, player.maxY); //may need to set max and min manually
+            spawnr = 0.8f;
             Instantiate(regularPenguin, spawnRPoint, Quaternion.identity);
         }       
     }
 
-    void Level1()
+    void SpawnBabies()
     {
-        SetUpPlayer();
+        spawnb -= Time.deltaTime;
+        if(spawnb < 0){
+            spawnBPoint.x = Random.Range(player.minY, player.maxY);
+            spawnb = 0.6f;
+            Instantiate(babyPenguin, spawnBPoint, Quaternion.identity);
+        }
+    }
+
+    void D1()
+    {
+        SetUpPlayerPara(-24,24,-7,2);
+        HandlePause();
+        UpdateTime();
+        SpawnRegulars();
+        UpdatePlayerLife();
+        UpdateScore();
+        CheckGameState();
+        CheckTimedWin();
         
+    }
+    void D2()
+    {
+        HandlePause();
+        SpawnBabies();
+        UpdatePlayerLife();
+        UpdateScore();
+        CheckGameState();
+        CheckScoreWin();
+    }
+
+    void D3()
+    {
+        HandlePause();
+        UpdatePlayerLife();
+        UpdateScore();
+        CheckGameState();
+        CheckScoreWin();
+
     }
 
 
@@ -221,15 +263,8 @@ public class SimpleGameManager : MonoBehaviour
     void Update()
     {
         if(demo1){
-            HandlePause();
-            UpdateTime();
-            SpawnRegulars();
-            UpdatePlayerLife();
-            UpdateScore();
-            CheckGameState();
-
+            D1();
         }
-
         if(demo2){
 
         }
@@ -314,6 +349,14 @@ public class SimpleGameManager : MonoBehaviour
     void CheckTimedWin()
     {
         if(timerTime <= 0){
+            Debug.Log("You Win!");
+
+        }
+    }
+
+    void CheckScoreWin()
+    {
+        if(score >= feedWinCondition){
 
         }
     }
