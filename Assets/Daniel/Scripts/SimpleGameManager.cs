@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SimpleGameManager : MonoBehaviour
 {
@@ -17,24 +18,54 @@ public class SimpleGameManager : MonoBehaviour
     [SerializeField]
     Character babyPenguin;
 
-    [Header("UI")]
+    [Header("Menus")]
     [SerializeField]
     GameObject pauseUI;
     bool paused = false;
     [SerializeField]
     GameObject loseUI;
 
+    [Header("Game UI")]
+    [SerializeField]
+    Image hearts;
+    [SerializeField]
+    Sprite[] playerLife ;
+    [SerializeField]
+    Text stageTimer;
+    static float startingTime = 60f; //for now we don't care about counting up
+    [SerializeField]
+    Text scoreText; //might get rid of this later to account for all types of penguins
+
+    //prepare to keep track of all types of penguins
+    public enum PenguinType{
+        Regular,
+        Baby,
+        Sliding,
+        Big
+    };
+    //int[] penguinsFed = new int[4]
+    public static int score = 0;
+
     Player player; 
     Vector3 spawnPoint = new Vector3(6,-2,0);
     Character[] horde;
+
+    public bool generateCharacters = false;
+    public bool countdownTime = false;
     void Start()
     {
-        player = Instantiate(playerPrefab);
-        player.gameObject.SetActive(true);
-        horde = new Character[30];
-        for(int i = 0; i < horde.Length; ++i){
-            horde[i] = Instantiate(regularPenguin);
-            horde[i].gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        if(generateCharacters){
+            player = Instantiate(playerPrefab);
+            player.gameObject.SetActive(true);
+            horde = new Character[30];
+            for(int i = 0; i < horde.Length; ++i){
+                horde[i] = Instantiate(regularPenguin);
+                horde[i].gameObject.SetActive(false);
+            }
+        }else{
+            hearts.sprite = null;
+            hearts.color = new Color(255, 255, 255, 0);
         }
         
     }
@@ -77,9 +108,20 @@ public class SimpleGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Spawn2();
+
         HandlePause();
-        CheckGameState();
+        if(generateCharacters){
+            Spawn2();
+            UpdatePlayerLife();
+            UpdateScore();
+            CheckGameState();
+        }
+        if(countdownTime){
+            if(startingTime > 0){
+                startingTime -= 1 * Time.deltaTime;
+                stageTimer.text = startingTime.ToString("0");
+            }
+        }
         
         //Spawn(regularPenguin);
 
@@ -87,9 +129,7 @@ public class SimpleGameManager : MonoBehaviour
     }
     void CheckGameState()
     {
-            Debug.Log("CALLED" + player.state);
         if(player.state == Character.CharacterState.Defeated){
-            Debug.Log("CALLED");
             loseUI.gameObject.SetActive(true);
             Time.timeScale = 0f; //psuedo pause
         }
@@ -104,7 +144,7 @@ public class SimpleGameManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Daniel-Test");
     }
     public void MainMenu()
     {
@@ -124,5 +164,13 @@ public class SimpleGameManager : MonoBehaviour
                 Time.timeScale = 0f;
             }
         }
+    }
+    void UpdatePlayerLife()
+    {
+        hearts.sprite = playerLife[player.life];
+    }
+    void UpdateScore()
+    {
+        scoreText.text = " " + score;
     }
 }

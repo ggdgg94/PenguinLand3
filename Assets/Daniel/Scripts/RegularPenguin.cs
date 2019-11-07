@@ -23,7 +23,7 @@ public class RegularPenguin : Character
             MovePenguin();
             break;
             case CharacterState.Defeated:
-            ScoreScript.scoreValue += 1;
+            SimpleGameManager.score += 1;
             Die();
             break;
         }
