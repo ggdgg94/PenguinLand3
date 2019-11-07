@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_PenguinLand3.-940800562.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Daniel" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Character.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Jordan" t="Include">
+          <e p="_External" t="Include">
+            <e p="2d-techdemos" t="Include">
+              <e p="Brushes" t="Include">
+                <e p="Coordinate Brush" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="Editor" t="Include">
+                      <e p="CoordinateBrush.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
+                <e p="GameObject Brush" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="Editor" t="Include">
+                      <e p="GameObjectBrush.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
+                <e p="Group Brush" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="Editor" t="Include">
+                      <e p="GroupBrush.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
+                <e p="Line Brush" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="Editor" t="Include">
+                      <e p="LineBrush.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
+                <e p="Prefab Brush" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="Editor" t="Include">
+                      <e p="PrefabBrush.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
+                <e p="Random Brush" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="Editor" t="Include">
+                      <e p="RandomBrush.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
+              </e>
+              <e p="Editor" t="Include">
+                <e p="PreviewUtil.cs" t="Include" />
+              </e>
+              <e p="GridInformation" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="GridInformation.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Rule Tiles" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="CustomRuleTileMenu.cs" t="Include" />
+                    <e p="HexagonalRuleTileEditor.cs" t="Include" />
+                    <e p="IsometricRuleTileEditor.cs" t="Include" />
+                    <e p="RuleOverrideTileEditor.cs" t="Include" />
+                    <e p="RuleTileEditor.cs" t="Include" />
+                  </e>
+                  <e p="HexagonalRuleTile.cs" t="Include" />
+                  <e p="IsometricRuleTile.cs" t="Include" />
+                  <e p="RuleOverrideTile.cs" t="Include" />
+                  <e p="RuleTile.cs" t="Include" />
+                  <e p="ScriptTemplates" t="Include">
+                    <e p="NewCustomRuleTile.cs.txt" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
+          <e p="GameManager.cs" t="Include" />
+          <e p="GameManager2.cs" t="Include" />
+          <e p="Loader.cs" t="Include" />
+          <e p="PenguinManager.cs" t="Include" />
+          <e p="PenguinSpawn.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="PenguinLand3.sln" t="IncludeFlat" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
