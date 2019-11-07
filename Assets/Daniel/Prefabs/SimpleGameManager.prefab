@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8644494802363120492}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.2299805, y: 6.730011, z: -14.788885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -47,8 +47,20 @@ MonoBehaviour:
     type: 3}
   regularPenguin: {fileID: 8479129992658389468, guid: 4374a3dbcf9e21d8baac0f7d9c45239d,
     type: 3}
-  slidingPenguin: {fileID: 0}
-  babyPenguin: {fileID: 0}
+  slidingPenguin: {fileID: 7585296021959585707, guid: 5b3add07c62d1823a9faddd05e6553d8,
+    type: 3}
+  babyPenguin: {fileID: 8073132856269836210, guid: df6467630ee839236b571a2dd3d05bdc,
+    type: 3}
+  bigPenguin: {fileID: 7063245140484487357, guid: a1c68fe2859cdbd44b58d2eb953ae36f,
+    type: 3}
+  regularBullet: {fileID: 8995768461658265246, guid: aacc799eb2f30bf628fd5c9ac9089850,
+    type: 3}
+  longBullet: {fileID: 2048695367151281406, guid: ee54d4968e3be3f4b9be4411317509eb,
+    type: 3}
+  bigBullet: {fileID: 1369675320429007204, guid: b8afe2eaeb25a5c7a97d57793de63786,
+    type: 3}
+  specialBullet: {fileID: 8128674288023808477, guid: 147cee1ff41011a3185736d350dcc5e3,
+    type: 3}
   pauseUI: {fileID: 0}
   loseUI: {fileID: 0}
   hearts: {fileID: 0}
@@ -59,4 +71,7 @@ MonoBehaviour:
   - {fileID: -4467090895889976647, guid: 9fbfd2388ad2c312fa3cb398b057462b, type: 3}
   - {fileID: -4116332579783086021, guid: 9fbfd2388ad2c312fa3cb398b057462b, type: 3}
   - {fileID: 2933884806260702822, guid: 9fbfd2388ad2c312fa3cb398b057462b, type: 3}
+  stageTimer: {fileID: 0}
+  scoreText: {fileID: 0}
   generateCharacters: 1
+  countdownTime: 1
