@@ -7,7 +7,7 @@ public class Winning1 : MonoBehaviour
 
     public GameObject Win1UI;
     public bool win1 = false;
-
+    public GameObject Player;
 
     void Start()
     {
@@ -17,11 +17,11 @@ public class Winning1 : MonoBehaviour
      void Update()
     {
 
-        if (ScoreScript.scoreValue == 15)
+        if (ScoreScript.scoreValue == 40)
         {   
             Win1UI.SetActive(true);
             Time.timeScale = 0.00001f;
-
+            PlayerGone();
             //SceneManager.LoadScene("2");
         }
         else
@@ -29,10 +29,15 @@ public class Winning1 : MonoBehaviour
             Time.timeScale = 1;
 
         }
+
     }
     public void Nextlevel()
     {
-        SceneManager.LoadScene("2");
+        SceneManager.LoadScene("Mission2");
+    }
+    public void PlayerGone()
+    {
+        Player.SetActive(false);
     }
 }
 

@@ -8,6 +8,7 @@ public class Winning2 : MonoBehaviour
 {
     public GameObject Win2UI;
     public bool win1 = false;
+    public GameObject Player;
 
 
     void Start()
@@ -22,7 +23,7 @@ public class Winning2 : MonoBehaviour
         {
             Win2UI.SetActive(true);
             Time.timeScale = 0.00001f;
-
+            PlayerGone();
             //SceneManager.LoadScene("2");
         }
        else
@@ -34,5 +35,10 @@ public class Winning2 : MonoBehaviour
     public void Nextlevel()
     {
         SceneManager.LoadScene("3");
+    }
+
+    public void PlayerGone()
+    {
+        Player.SetActive(false);
     }
 }

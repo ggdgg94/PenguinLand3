@@ -6,9 +6,21 @@ public class MainMenu : MonoBehaviour
 {
    public void playGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Mission1");
 
     }
+
+    public void LoadGame1()
+    {
+        SceneManager.LoadScene("1");
+
+    }
+    public void LoadGame2()
+    {
+        SceneManager.LoadScene("2");
+
+    }
+
 
     public void QuitGame()
     {

@@ -8,7 +8,7 @@ public class CountdownTimer : MonoBehaviour
 
 
     static public float currentTime = 0f;
-    static public float startingTime = 60f;
+    static public float startingTime = 10f;
 
     [SerializeField] Text countdownText;
     void Start()
