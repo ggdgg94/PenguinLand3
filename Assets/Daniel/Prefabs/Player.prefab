@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  autoFill: 1
   life: 5
   invincilbeTimer: 0
   moveSpeed: 5
@@ -179,7 +180,7 @@ MonoBehaviour:
   shootTimer: 0.35
   cooldownTime: 0.35
   gun: {fileID: 6089225988616412429}
-  playerCollider: {fileID: 0}
+  loseUI: {fileID: 0}
 --- !u!1001 &2294335096304795371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,7 +197,31 @@ PrefabInstance:
         type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 605127669262400686, guid: ea4a275af710d8859828ce16760f61bc,
+      objectReference: {fileID: 5944863915497650418, guid: 11aaef3338d86664a82872cebcd2dc63,
+        type: 3}
+    - target: {fileID: 5428626849162568678, guid: f379a90a1ecbd5c2fa34e8065b508da2,
+        type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d45f44ee196681e5908504a3bec1bb5,
+        type: 3}
+    - target: {fileID: 5428626849162568678, guid: f379a90a1ecbd5c2fa34e8065b508da2,
+        type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: ec0c5cec64cea45d2a84ef4e23022833,
+        type: 3}
+    - target: {fileID: 5428626849162568678, guid: f379a90a1ecbd5c2fa34e8065b508da2,
+        type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: c3551a3d2dbbb01598256a74f7967056,
+        type: 3}
+    - target: {fileID: 5428626849162568678, guid: f379a90a1ecbd5c2fa34e8065b508da2,
+        type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 658d6dcb5313f00b7ab0c45c06ece5b9,
         type: 3}
     - target: {fileID: 8312869066863371682, guid: f379a90a1ecbd5c2fa34e8065b508da2,
         type: 3}

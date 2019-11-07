@@ -52,8 +52,8 @@ public class Player : Character
                 MovePlayer();
                 break;
             case CharacterState.Defeated:
-                loseUI.SetActive(true);
-                //Die();
+                //loseUI.SetActive(true);
+                Die();
                 break;
         }
 

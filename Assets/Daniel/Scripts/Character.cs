@@ -84,18 +84,20 @@ public class Character : MonoBehaviour
         
     }
 
+    /* 
     public void SetUpLimits()
     {
         Debug.Log("Set up has been called");
         Camera c = FindObjectOfType<Camera>();
         float height = c.scaledPixelHeight;
         float width = c.scaledPixelWidth;
-        minY = -(height / 100) - 2;
-        maxY = (height / 100) + 2;
-        minX = -(width / 100) - 2;
-        maxX = (width / 100) + 2;
+        minY = -(height / 100);
+        maxY = (height / 100);
+        minX = -(width / 100);
+        maxX = (width / 100);
     }
-    public void SetUpLimits(float dist)
+    */
+    public void SetUpLimits(float dist = 0)
     {
         Debug.Log("Set up has been called");
         Camera c = FindObjectOfType<Camera>();
