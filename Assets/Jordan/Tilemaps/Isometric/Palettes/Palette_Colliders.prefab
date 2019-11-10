@@ -353,10 +353,6 @@ TilemapRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-<<<<<<< HEAD
-=======
-  m_ReceiveGI: 1
->>>>>>> e6e9ab1f3c88d6f32b2e9077e3a09cbbb094d965
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
