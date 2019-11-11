@@ -48,20 +48,6 @@ public class SimpleGameManager : MonoBehaviour
     [SerializeField]
     Text scoreText; //might get rid of this later to account for all types of penguins
 
-    //prepare to keep track of all types of penguins
-    public enum PenguinType{
-        Regular = 0,
-        Baby,
-        Sliding,
-        Big
-    };
-    //int[] penguinsFed = new int[4]
-    public static int score = 0;
-
-    Player player; 
-    Vector3 spawnPoint = new Vector3(6,-2,0);
-    Character[] horde;
-     
 
     [Header("Level Settings")]
     //Do we want to play a level type? Keep both false for a general purpose scene
@@ -72,25 +58,45 @@ public class SimpleGameManager : MonoBehaviour
     public int feedWinCondition = 0;
 
 
-
     [Header("General Scene Settings")]
     //General Purpose
-    public bool generateCharacters = false;
+    public bool generateCharacter = false;
+    public bool generateItems = false;
+    public bool generatePenguins = false;
+    public int numPenguins = 0;
     public bool countdownTime = false;
-    public int numPenguins = 0; 
+
+    [Header("Advanced Scene Settings")]
+    public PenguinSpawner penguinSpawners;
+    
+    /* 
     public float[] penguinSpawnTimes = new float[4];
     public float[] itemSpawnTimes = new float[4];
+    public Vector3[] spawnPoints = new Vector3[8];
+   */
 
+    Player player; 
+    Vector3 spawnPoint = new Vector3(6,-2,0);
+    Character[] horde;
+    public static int score = 0;
 
-    [Header("Demo")]
-    public bool demo1 = false;
-    public bool demo2 = false;
-    public bool demo3 = false;
-
+    public void GeneralSetup()
+    {
+        if(generateCharacter){
+            player = Instantiate(player, spawnPoint, Quaternion.identity);
+        }else{
+            hearts.sprite = null;
+            hearts.color = new Color(255, 255, 255, 0);
+        }
+        
+    }
     void Start()
     {
         Time.timeScale = 1f;
+        if(!winByTime && !winByFeed){
 
+        }
+/* 
         if(demo1){
             SetUpPlayer();
             SetUpPlayerPara(-24f,30f,-7f,-1f);
@@ -127,6 +133,7 @@ public class SimpleGameManager : MonoBehaviour
             }
         }
         Debug.Log(player.minX);
+*/
     }
 
     void SetUpPlayer()
@@ -262,6 +269,7 @@ public class SimpleGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /* 
         if(demo1){
             D1();
         }
@@ -272,7 +280,7 @@ public class SimpleGameManager : MonoBehaviour
         if(demo3){
 
         }
-
+        /* 
         if(!demo1 && !demo2 && !demo3){
             HandlePause();
             if(generateCharacters){
@@ -286,6 +294,7 @@ public class SimpleGameManager : MonoBehaviour
             
             }
         }
+        */
         
         //Spawn(regularPenguin);
 
