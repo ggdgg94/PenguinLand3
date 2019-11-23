@@ -132,75 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1160522987
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8073132856269836205, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_Name
-      value: BabyPenguin
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073132856269836215, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.008
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073132856269836215, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.463
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073132856269836215, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073132856269836215, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073132856269836215, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073132856269836215, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073132856269836215, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073132856269836215, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073132856269836215, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073132856269836215, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073132856269836215, guid: df6467630ee839236b571a2dd3d05bdc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: df6467630ee839236b571a2dd3d05bdc, type: 3}
 --- !u!1 &1382756522
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1435239733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,11 +244,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea297e19fbee96b879d9db3039ec7c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
-  spawnRate: 0
+  active: 1
+  spawnRate: 1
   spawnPoint: {x: 0, y: 0, z: 0}
-  numSpawns: 0
-  type: 0
+  numSpawns: 30
+  randomX: 0
+  randomY: 0
+  penguinPrefab: {fileID: 8479129992658389468, guid: 4374a3dbcf9e21d8baac0f7d9c45239d,
+    type: 3}
+  stype: 0
 --- !u!4 &1435239734
 Transform:
   m_ObjectHideFlags: 0
@@ -330,7 +265,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1593147977 stripped
 MonoBehaviour:
@@ -684,6 +619,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleGameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8644494802363120492, guid: c51ecd1ef33df17d6868cd44679782f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8644494802363120493, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}
       propertyPath: penguinSpawners.Array.size
@@ -717,6 +657,16 @@ PrefabInstance:
     - target: {fileID: 8644494802363120493, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}
       propertyPath: demo1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644494802363120493, guid: c51ecd1ef33df17d6868cd44679782f1,
+        type: 3}
+      propertyPath: countdownTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644494802363120493, guid: c51ecd1ef33df17d6868cd44679782f1,
+        type: 3}
+      propertyPath: generateCharacter
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8644494802363120494, guid: c51ecd1ef33df17d6868cd44679782f1,
@@ -757,7 +707,7 @@ PrefabInstance:
     - target: {fileID: 8644494802363120494, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8644494802363120494, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}

@@ -11,24 +11,6 @@ public class SimpleGameManager : MonoBehaviour
     //Prefabs set in Editor
     [SerializeField]
     Player playerPrefab;
-    [SerializeField]
-    Character regularPenguin;
-    [SerializeField]
-    Character slidingPenguin;
-    [SerializeField]
-    Character babyPenguin;
-    [SerializeField]
-    Character bigPenguin;
-
-    [Header("Items")]
-    [SerializeField]
-    Item regularBullet;
-    [SerializeField]
-    Item longBullet;
-    [SerializeField]
-    Item bigBullet;
-    [SerializeField]
-    Item specialBullet;
 
     [Header("Menus")]
     [SerializeField]
@@ -61,13 +43,10 @@ public class SimpleGameManager : MonoBehaviour
     [Header("General Scene Settings")]
     //General Purpose
     public bool generateCharacter = false;
-    public bool generateItems = false;
-    public bool generatePenguins = false;
-    public int numPenguins = 0;
     public bool countdownTime = false;
 
     [Header("Advanced Scene Settings")]
-    public PenguinSpawner penguinSpawners;
+    public PenguinSpawner[] penguinSpawners;
     
     /* 
     public float[] penguinSpawnTimes = new float[4];
@@ -83,7 +62,7 @@ public class SimpleGameManager : MonoBehaviour
     public void GeneralSetup()
     {
         if(generateCharacter){
-            player = Instantiate(player, spawnPoint, Quaternion.identity);
+            player = Instantiate(playerPrefab, spawnPoint, Quaternion.identity);
         }else{
             hearts.sprite = null;
             hearts.color = new Color(255, 255, 255, 0);
@@ -93,23 +72,9 @@ public class SimpleGameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        if(!winByTime && !winByFeed){
+        GeneralSetup();
 
-        }
 /* 
-        if(demo1){
-            SetUpPlayer();
-            SetUpPlayerPara(-24f,30f,-7f,-1f);
-            SetUpPenguinPara(regularPenguin, -24f, 24f, -7f, -1f);
-            timerTime = 15f;
-
-        }else if(demo2){
-            SetUpPlayer();
-            SetUpPlayerPara(-24f,30f,-7f,-1f);
-            SetUpPenguinPara(babyPenguin, 0, 0, 0, 0);
-            feedWinCondition = 20;
-
-        }else if(demo3){
 
         }else{
             Time.timeScale = 1f;
@@ -139,31 +104,7 @@ public class SimpleGameManager : MonoBehaviour
     void SetUpPlayer()
     {
         player = Instantiate(playerPrefab);
-        player.gameObject.SetActive(true);
     }
-    void SetUpPenguinAmount(Character penguin, int amount = 30)
-    {
-        horde = new Character[amount];
-        for(int i = 0; i < horde.Length; ++i){
-            horde[i] = Instantiate(penguin);
-            horde[i].gameObject.SetActive(false);
-        }
-    }
-
-    void SpawnRandoms()
-    {
-
-    }
-
-
-
-    /*LEVEL 1 - WIN BY TIME */
-    float spawnr = 0.3f;
-    float spawns = 0.5f;
-    float spawnb = 0.4f;
-    float spawnf = 0.9f;
-    Vector3 spawnRPoint = new Vector3(22f, 0f, 0f);
-    Vector3 spawnBPoint = new Vector3(0f, -22f, 0f);
     void SetUpPlayerPara(float x1, float x2, float y1, float y2)
     {
         player.minX = x1;
@@ -171,116 +112,13 @@ public class SimpleGameManager : MonoBehaviour
         player.minY = y1;
         player.maxY = y2;
     }
-    void SetUpPenguinPara(Character p, float x1, float x2, float y1, float y2)
-    {
-        p.minX = x1;
-        p.maxX = x2;
-        p.minY = y1;
-        p.maxY = y2;
 
-    }
-    void SpawnRegulars()
-    {
-        spawnr -= Time.deltaTime;
-        if(spawnr < 0){
-            spawnRPoint.y = Random.Range(player.minY, player.maxY); //may need to set max and min manually
-            spawnr = 0.8f;
-            Instantiate(regularPenguin, spawnRPoint, Quaternion.identity);
-        }       
-    }
-
-    void SpawnBabies()
-    {
-        spawnb -= Time.deltaTime;
-        if(spawnb < 0){
-            spawnBPoint.x = Random.Range(player.minY, player.maxY);
-            spawnb = 0.6f;
-            Instantiate(babyPenguin, spawnBPoint, Quaternion.identity);
-        }
-    }
-
-    void D1()
-    {
-        SetUpPlayerPara(-24,24,-7,2);
-        HandlePause();
-        UpdateTime();
-        SpawnRegulars();
-        UpdatePlayerLife();
-        UpdateScore();
-        CheckGameState();
-        CheckTimedWin();
-        
-    }
-    void D2()
-    {
-        HandlePause();
-        SpawnBabies();
-        UpdatePlayerLife();
-        UpdateScore();
-        CheckGameState();
-        CheckScoreWin();
-    }
-
-    void D3()
-    {
-        HandlePause();
-        UpdatePlayerLife();
-        UpdateScore();
-        CheckGameState();
-        CheckScoreWin();
-
-    }
-
-
-    float spawntime = 0.3f;
-    void Spawn(Character penguin)
-    {
-        spawntime -= Time.deltaTime;
-        if(spawntime < 0){
-            spawnPoint.x = Random.Range(player.minX, player.maxX);
-            spawnPoint.y = Random.Range(player.minY, player.maxY);
-            spawntime = 0.3f;
-            Instantiate(penguin, spawnPoint, Quaternion.identity);
-        }
-    }
-    int num = 0;
-    void Spawn2(float timer = 0.4f)
-    {
-        spawntime -= Time.deltaTime;
-        if(spawntime < 0 && num < horde.Length){
-            spawnPoint.x = Random.Range(player.minX, player.maxX);
-            spawnPoint.y = Random.Range(player.minX, player.maxX);
-            horde[num].transform.position = spawnPoint;
-
-            spawnPoint.x += 1;
-            spawnPoint.y += 2;
-            horde[num+1].transform.position = spawnPoint;
-            spawnPoint.y -= 4;
-            horde[num+2].transform.position = spawnPoint;
-
-
-            horde[num].gameObject.SetActive(true);
-            horde[num+1].gameObject.SetActive(true);
-            horde[num+2].gameObject.SetActive(true);
-            spawntime = timer;
-            num+=3;
-        }
-    }
     // Update is called once per frame
     void Update()
     {
-        /* 
-        if(demo1){
-            D1();
-        }
-        if(demo2){
+        HandlePause();
+        /*
 
-        }
-
-        if(demo3){
-
-        }
-        /* 
         if(!demo1 && !demo2 && !demo3){
             HandlePause();
             if(generateCharacters){
