@@ -69,10 +69,32 @@ public class SimpleGameManager : MonoBehaviour
         }
         
     }
+
+    public void FeedSetup()
+    {
+        if(winByFeed){
+            generateCharacter = true;
+            feedWinCondition < 0 ? feedWinCondition = 10 : feedWinCondition = feedWinCondition;
+        }
+    }
     void Start()
     {
         Time.timeScale = 1f;
-        GeneralSetup();
+        if(winByFeed){
+            GeneralSetup();
+
+        }else if(winByTime){
+
+        }else{
+            if(generateCharacter)
+                GeneralSetup();
+
+            if(countdownTime)
+                if(timeForRound <= 0){
+                    timeForRound = 60f;
+                }
+        }
+            
 
 /* 
 

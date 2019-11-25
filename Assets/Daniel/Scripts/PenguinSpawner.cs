@@ -55,6 +55,8 @@ public class PenguinSpawner : Spawner
                         SpawnPair();
                         break;
                 }
+            }else{
+                active = false;
             }
 
         }
@@ -130,6 +132,7 @@ public class PenguinSpawner : Spawner
     // Update is called once per frame
     void Update()
     {
-        Spawn();
+        if(active)
+            Spawn();
     }
 }
