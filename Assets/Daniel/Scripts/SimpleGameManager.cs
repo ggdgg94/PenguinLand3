@@ -18,6 +18,10 @@ public class SimpleGameManager : MonoBehaviour
     bool paused = false;
     [SerializeField]
     GameObject loseUI;
+    [SerializeField]
+    GameObject WinScoreUI;
+    [SerializeField]
+    GameObject WinTimeUI;
 
     [Header("Game UI")]
     [SerializeField]
@@ -56,10 +60,10 @@ public class SimpleGameManager : MonoBehaviour
 
     Player player; 
     Vector3 spawnPoint = new Vector3(6,-2,0);
-    Character[] horde;
+    PenguinSpawner[] horde;
     public static int score = 0;
 
-    public void GeneralSetup()
+    void CharacterSetup()
     {
         if(generateCharacter){
             player = Instantiate(playerPrefab, spawnPoint, Quaternion.identity);
@@ -67,98 +71,112 @@ public class SimpleGameManager : MonoBehaviour
             hearts.sprite = null;
             hearts.color = new Color(255, 255, 255, 0);
         }
-        
     }
 
-    public void FeedSetup()
+    void TimeSetup()
+    {
+        if(countdownTime){
+            timerTime = timerTime < 0 ? 60 : timerTime;
+        }else{
+
+        }
+
+    }
+
+    void SpawnSetup()
+    {
+        if(penguinSpawners.Length != 0){
+            horde = new PenguinSpawner[penguinSpawners.Length];
+            for(int i = 0; i < penguinSpawners.Length; ++i){
+                
+                horde[i] = Instantiate(penguinSpawners[i]); //prevent spawn before game starts
+                horde[i].active = false;
+            }
+        }
+    }
+
+    void SpawnStart()
+    {
+        if(penguinSpawners != null){
+            for(int i = 0; i < penguinSpawners.Length; ++i){
+                horde[i].active = true; //prevent spawn before game starts
+            }
+        }
+    }
+    public void GeneralSetup()
+    {
+        CharacterSetup();
+        TimeSetup();
+        SpawnSetup();
+    }
+
+    public void FeedWinSetup()
     {
         if(winByFeed){
             generateCharacter = true;
-            feedWinCondition < 0 ? feedWinCondition = 10 : feedWinCondition = feedWinCondition;
+            feedWinCondition = feedWinCondition < 0 ? 10 : feedWinCondition;
+            countdownTime = false;
+            CharacterSetup();
+            SpawnSetup();
+
         }
+    }
+
+    void TimeWinSetup()
+    {
+        generateCharacter = true;
+        timeForRound = timeForRound < 0 ? 60f : timeForRound;
+        countdownTime = true;
+        CharacterSetup();
+        TimeSetup();
+        timerTime = timeForRound < 0 ? 60 : timeForRound;
+        SpawnSetup();
+
     }
     void Start()
     {
         Time.timeScale = 1f;
         if(winByFeed){
-            GeneralSetup();
-
+            FeedWinSetup();
         }else if(winByTime){
-
+            TimeWinSetup();
         }else{
             if(generateCharacter)
                 GeneralSetup();
-
             if(countdownTime)
-                if(timeForRound <= 0){
-                    timeForRound = 60f;
-                }
+                TimeSetup();
+
+            SpawnSetup();
         }
-            
-
-/* 
-
-        }else{
-            Time.timeScale = 1f;
-            if(winByTime){
-                generateCharacters = true;
-                countdownTime = true;
-                SetUpPlayer();
-
-            }else if(winByFeed){
-                generateCharacters = true;
-                SetUpPlayer();
-
-            }else{
-                if(generateCharacters){
-                    SetUpPlayer();
-                    SetUpPenguinAmount(regularPenguin, 30);
-                }else{
-                    hearts.sprite = null;
-                    hearts.color = new Color(255, 255, 255, 0);
-                }
-            }
-        }
-        Debug.Log(player.minX);
-*/
-    }
-
-    void SetUpPlayer()
-    {
-        player = Instantiate(playerPrefab);
-    }
-    void SetUpPlayerPara(float x1, float x2, float y1, float y2)
-    {
-        player.minX = x1;
-        player.maxX = x2;
-        player.minY = y1;
-        player.maxY = y2;
+        SpawnStart();
     }
 
     // Update is called once per frame
     void Update()
     {
         HandlePause();
-        /*
+        if(winByFeed){
+            UpdatePlayerLife();
+            CheckGameState();
+            UpdateScore();
+            CheckScoreWin();
+        }else if(winByTime){
+            UpdateTime();
+            CheckTimedWin();
+            UpdatePlayerLife();
+            CheckGameState();
+            UpdateScore();
 
-        if(!demo1 && !demo2 && !demo3){
-            HandlePause();
-            if(generateCharacters){
-                Spawn2();
+        }else{
+            if(generateCharacter){
                 UpdatePlayerLife();
-                UpdateScore();
-                CheckGameState();
             }
-            if(countdownTime){
+            if(countdownTime)
                 UpdateTime();
-            
-            }
-        }
-        */
-        
-        //Spawn(regularPenguin);
 
-        
+            if(penguinSpawners != null)
+                UpdateScore();
+        }
     }
     void CheckGameState()
     {
@@ -219,6 +237,8 @@ public class SimpleGameManager : MonoBehaviour
     {
         if(timerTime <= 0){
             Debug.Log("You Win!");
+            Time.timeScale = 0f;
+            WinTimeUI.SetActive(true);
 
         }
     }
@@ -226,7 +246,10 @@ public class SimpleGameManager : MonoBehaviour
     void CheckScoreWin()
     {
         if(score >= feedWinCondition){
-
+            Debug.Log("You win!!!!");
+            Time.timeScale = 0f;
+            WinScoreUI.SetActive(true);
+            
         }
     }
 
