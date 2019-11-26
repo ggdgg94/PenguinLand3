@@ -53,7 +53,7 @@ public class BossPenguin : Character
         Move(-direction, dashSpeed);
         if(dashSpeed < 1f){
             state = CharacterState.Normal;
-            dashSpeed = 30f;
+            dashSpeed = 5f;
             transform.rotation = Quaternion.identity;
         }
     }
@@ -70,11 +70,11 @@ public class BossPenguin : Character
 
      void OnTriggerEnter2D(Collider2D p)
      {
-        if(p.CompareTag("Player") && player.GetComponent<Player>().state == CharacterState.Normal){
-            dashSpeed = 10f; //prepare to be flung off
+        if(p.CompareTag("Player")){
+            dashSpeed = 5f; //prepare to be flung off
             Fly();
         } 
-        if(p.CompareTag("Bullet") && state != CharacterState.Latching){
+        if(p.CompareTag("Bullet")){
             life -= 1;
             Fly();
         }
