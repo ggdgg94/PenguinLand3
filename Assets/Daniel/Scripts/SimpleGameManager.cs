@@ -248,7 +248,23 @@ public class SimpleGameManager : MonoBehaviour
     {
         Application.Quit();
     }
-
+    public void Level2()
+    {
+        SceneManager.LoadScene("2");
+    }
+    public void Level3()
+    {
+        SceneManager.LoadScene("3");
+    }
+    public void Level4()
+    {
+        SceneManager.LoadScene("4");
+    }
+    public void LevelBoss()
+    {
+        SceneManager.LoadScene("BOSS");
+    }
+   
     void HandlePause()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
