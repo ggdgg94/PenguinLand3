@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8187710264628643125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.4202, y: 3.13, z: 0}
-  m_LocalScale: {x: 0.60625, y: 0.35, z: 1}
+  m_LocalPosition: {x: -8.4, y: 3.13, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 7821103020225862473}
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: bf3b247c49a27dd14968d8e463533075, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2c6a08b505a0e084bb5e6856ad732c86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,18 +98,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0467453, y: -0.25895238}
+  m_Offset: {x: 0.033308983, y: 0.023183823}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.81, y: 7.225}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 3.81, y: 7.225}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7195282, y: 6.7071953}
+  m_Size: {x: 0.38181877, y: 0.7151394}
   m_EdgeRadius: 0
 --- !u!50 &8187710264628643128
 Rigidbody2D:
@@ -203,25 +203,25 @@ PrefabInstance:
         type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 0d45f44ee196681e5908504a3bec1bb5,
+      objectReference: {fileID: 21300000, guid: b3388031222ebff42ba06f1805ee9c89,
         type: 3}
     - target: {fileID: 5428626849162568678, guid: f379a90a1ecbd5c2fa34e8065b508da2,
         type: 3}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: ec0c5cec64cea45d2a84ef4e23022833,
+      objectReference: {fileID: 21300000, guid: b3388031222ebff42ba06f1805ee9c89,
         type: 3}
     - target: {fileID: 5428626849162568678, guid: f379a90a1ecbd5c2fa34e8065b508da2,
         type: 3}
       propertyPath: sprites.Array.data[2]
       value: 
-      objectReference: {fileID: 21300000, guid: c3551a3d2dbbb01598256a74f7967056,
+      objectReference: {fileID: 21300000, guid: b3388031222ebff42ba06f1805ee9c89,
         type: 3}
     - target: {fileID: 5428626849162568678, guid: f379a90a1ecbd5c2fa34e8065b508da2,
         type: 3}
       propertyPath: sprites.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 658d6dcb5313f00b7ab0c45c06ece5b9,
+      objectReference: {fileID: 21300000, guid: b3388031222ebff42ba06f1805ee9c89,
         type: 3}
     - target: {fileID: 8312869066863371682, guid: f379a90a1ecbd5c2fa34e8065b508da2,
         type: 3}

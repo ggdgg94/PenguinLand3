@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -325,3 +326,4 @@ public class SimpleGameManager : MonoBehaviour
 
     }
 }
+>>>>>>> d8e328092404d41812adb1fccdb8bcb3671cd462

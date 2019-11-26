@@ -14,30 +14,40 @@ public class FlyingPenguin : Character
         if(autoFill)
             SetUpLimits();
        player = FindObjectOfType<Player>().transform;
-       timer = Random.Range(0, 10f);
+       timer = Random.Range(1f, 2f);
     }
     // Update is called once per frame
     void Update()
     {
         SetDirection();
-        MovePenguin(); 
+        MovePenguin();
+        Drop();
+    }
+    public void MoveF(Vector3 dir)
+    {
+        lastDirection = dir;
+        tmpPosition = (dir.normalized * moveSpeed * Time.deltaTime) + transform.position;
+        tmpPosition.x = Mathf.Clamp(tmpPosition.x, minX, maxX);
+        tmpPosition.y = Mathf.Clamp(tmpPosition.y, minY, player.position.y + 1);
+        transform.position = tmpPosition;
     }
     public override void SetDirection()
     {
         //follow player in x direction
         direction = (player.position - transform.position).normalized;
         direction.x = Mathf.RoundToInt(direction.x);
-        //direction.y = Mathf.RoundToInt(direction.y);
+        direction.y = Mathf.RoundToInt(direction.y) ;
     }
     public void MovePenguin()
     {
-        Move(direction);
+        MoveF(direction);
     }
     public void Drop()
     {
         timer -= Time.deltaTime;
         if(timer <= 0){
             int r = Random.Range(0, drops.Length);
+            Debug.Log("Random");
             //need to play a sound here to indicate a drop
             Instantiate(drops[r], shadow.position, Quaternion.identity);
             Die();

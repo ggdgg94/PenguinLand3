@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 897965557246819705}
   - component: {fileID: 5967196017359568794}
   - component: {fileID: 4227482486215305845}
-  - component: {fileID: 7063245140484487357}
+  - component: {fileID: 1073623460}
   m_Layer: 0
   m_Name: BigPenguin
   m_TagString: BigPenguin
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7356066900693267226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.78, y: 0.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: a03c5e23d10012528b50feee88540905, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d7dd9cc5341a4d4baaa49487cfd8289, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,9 +116,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.013518791, y: 0.03333696}
   serializedVersion: 2
-  m_Radius: 1.9
+  m_Radius: 0.17581545
 --- !u!50 &4227482486215305845
 Rigidbody2D:
   serializedVersion: 4
@@ -140,7 +140,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7063245140484487357
+--- !u!114 &1073623460
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,15 +149,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7356066900693267226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d309ec139a17dc649b41a2450dbc57c, type: 3}
+  m_Script: {fileID: 11500000, guid: cba41ba0e8ed34e448da06fe17228a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
   autoFill: 1
-  life: 8
+  life: 20
   invincilbeTimer: 0
-  moveSpeed: 0
-  dashSpeed: 0
+  moveSpeed: 1
+  dashSpeed: 5
   direction: {x: 0, y: 0, z: 0}
   lastDirection: {x: 0, y: 0, z: 0}
   maxX: 0
@@ -166,3 +166,5 @@ MonoBehaviour:
   minY: 0
   tmpPosition: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
+  player: {fileID: 0}
+  distance: {x: 0, y: 0, z: 0}

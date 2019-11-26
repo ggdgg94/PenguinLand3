@@ -99,7 +99,6 @@ public class Character : MonoBehaviour
     */
     public void SetUpLimits(float dist = 0)
     {
-        Debug.Log("Set up has been called");
         Camera c = FindObjectOfType<Camera>();
         float height = c.scaledPixelHeight;
         float width = c.scaledPixelWidth;

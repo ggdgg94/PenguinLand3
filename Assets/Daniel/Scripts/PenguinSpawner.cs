@@ -28,11 +28,9 @@ public class PenguinSpawner : Spawner
             }
         }
         currentTime = spawnRate;
-        Debug.Log("Penguin Spawner started correctly");
     }
     public override void Spawn()
     {
-        Debug.Log("Spawning!");
         currentTime -= Time.deltaTime;
         if (currentTime <= 0)
         {
@@ -58,7 +56,6 @@ public class PenguinSpawner : Spawner
                         break;
                 }
             }else{
-                Debug.Log("Finished Queue!");
                 active = false;
             }
 
@@ -135,7 +132,6 @@ public class PenguinSpawner : Spawner
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("PenguinSpawner Updating");
         if(active)
             Spawn();
     }
