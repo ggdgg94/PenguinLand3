@@ -17,7 +17,7 @@ public class Winning1 : MonoBehaviour
      void Update()
     {
 
-        if (ScoreScript.scoreValue == 40)
+        if (ScoreScript.scoreValue == 3)
         {   
             Win1UI.SetActive(true);
             Time.timeScale = 0.00001f;

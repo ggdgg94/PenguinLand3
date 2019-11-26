@@ -25,6 +25,7 @@ public class RegularPenguin : Character
             case CharacterState.Defeated:
             SimpleGameManager.score += 1;
             Die();
+            SoundManager.PlaySound("GetHit1");
             break;
         }
         
@@ -49,6 +50,8 @@ public class RegularPenguin : Character
     {
         if(p.CompareTag("Bullet")){
             life -= 1;
+            SoundManager.PlaySound("GetHit0");
+
         }
     }
 }

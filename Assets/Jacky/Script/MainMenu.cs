@@ -10,6 +10,12 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void playEndLess()
+    {
+        SceneManager.LoadScene("EndLess");
+
+    }
+
     public void LoadGame1()
     {
         SceneManager.LoadScene("1");
@@ -21,7 +27,23 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void LoadGame3()
+    {
+        SceneManager.LoadScene("3");
 
+    }
+
+    public void LoadGame4()
+    {
+        SceneManager.LoadScene("4");
+
+    }
+
+    public void LoadGameBoss()
+    {
+        SceneManager.LoadScene("BOSS");
+
+    }
     public void QuitGame()
     {
         Debug.Log("QUIT!");

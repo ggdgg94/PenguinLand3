@@ -1,4 +1,5 @@
-﻿using System.Collections;
+<<<<<<< HEAD
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,7 +28,7 @@ public class SimpleGameManager : MonoBehaviour
     [SerializeField]
     Image hearts;
     [SerializeField]
-    Sprite[] playerLife ;
+    Sprite[] playerLife;
     [SerializeField]
     Text stageTimer;
     static float timerTime = 60f; //for now we don't care about counting up
@@ -51,23 +52,26 @@ public class SimpleGameManager : MonoBehaviour
 
     [Header("Advanced Scene Settings")]
     public PenguinSpawner[] penguinSpawners;
-    
+
     /* 
     public float[] penguinSpawnTimes = new float[4];
     public float[] itemSpawnTimes = new float[4];
     public Vector3[] spawnPoints = new Vector3[8];
    */
 
-    Player player; 
-    Vector3 spawnPoint = new Vector3(1,0,0);
+    Player player;
+    Vector3 spawnPoint = new Vector3(6, -2, 0);
     PenguinSpawner[] horde;
     public static int score = 0;
 
     void CharacterSetup()
     {
-        if(generateCharacter){
+        if (generateCharacter)
+        {
             player = Instantiate(playerPrefab, spawnPoint, Quaternion.identity);
-        }else{
+        }
+        else
+        {
             hearts.sprite = null;
             hearts.color = new Color(255, 255, 255, 0);
         }
@@ -75,9 +79,12 @@ public class SimpleGameManager : MonoBehaviour
 
     void TimeSetup()
     {
-        if(countdownTime){
+        if (countdownTime)
+        {
             timerTime = timerTime < 0 ? 60 : timerTime;
-        }else{
+        }
+        else
+        {
 
         }
 
@@ -85,10 +92,12 @@ public class SimpleGameManager : MonoBehaviour
 
     void SpawnSetup()
     {
-        if(penguinSpawners.Length != 0){
+        if (penguinSpawners.Length != 0)
+        {
             horde = new PenguinSpawner[penguinSpawners.Length];
-            for(int i = 0; i < penguinSpawners.Length; ++i){
-                
+            for (int i = 0; i < penguinSpawners.Length; ++i)
+            {
+
                 horde[i] = Instantiate(penguinSpawners[i]); //prevent spawn before game starts
                 horde[i].active = false;
             }
@@ -97,8 +106,10 @@ public class SimpleGameManager : MonoBehaviour
 
     void SpawnStart()
     {
-        if(penguinSpawners != null){
-            for(int i = 0; i < penguinSpawners.Length; ++i){
+        if (penguinSpawners != null)
+        {
+            for (int i = 0; i < penguinSpawners.Length; ++i)
+            {
                 horde[i].active = true; //prevent spawn before game starts
             }
         }
@@ -112,7 +123,8 @@ public class SimpleGameManager : MonoBehaviour
 
     public void FeedWinSetup()
     {
-        if(winByFeed){
+        if (winByFeed)
+        {
             generateCharacter = true;
             feedWinCondition = feedWinCondition < 0 ? 10 : feedWinCondition;
             countdownTime = false;
@@ -136,14 +148,19 @@ public class SimpleGameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        if(winByFeed){
+        if (winByFeed)
+        {
             FeedWinSetup();
-        }else if(winByTime){
+        }
+        else if (winByTime)
+        {
             TimeWinSetup();
-        }else{
-            if(generateCharacter)
+        }
+        else
+        {
+            if (generateCharacter)
                 GeneralSetup();
-            if(countdownTime)
+            if (countdownTime)
                 TimeSetup();
 
             SpawnSetup();
@@ -155,32 +172,39 @@ public class SimpleGameManager : MonoBehaviour
     void Update()
     {
         HandlePause();
-        if(winByFeed){
+        if (winByFeed)
+        {
             UpdatePlayerLife();
             CheckGameState();
             UpdateScore();
             CheckScoreWin();
-        }else if(winByTime){
+        }
+        else if (winByTime)
+        {
             UpdateTime();
             CheckTimedWin();
             UpdatePlayerLife();
             CheckGameState();
             UpdateScore();
-
-        }else{
-            if(generateCharacter){
+           
+        }
+        else
+        {
+            if (generateCharacter)
+            {
                 UpdatePlayerLife();
             }
-            if(countdownTime)
+            if (countdownTime)
                 UpdateTime();
 
-            if(penguinSpawners != null)
+            if (penguinSpawners != null)
                 UpdateScore();
         }
     }
     void CheckGameState()
     {
-        if(player.state == Character.CharacterState.Defeated){
+        if (player.state == Character.CharacterState.Defeated)
+        {
             loseUI.gameObject.SetActive(true);
             Time.timeScale = 0f; //psuedo pause
         }
@@ -193,9 +217,29 @@ public class SimpleGameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Restart()
+    public void Restart1()
     {
-        SceneManager.LoadScene("Daniel-Test");
+        SceneManager.LoadScene("1");
+    }
+    public void Restart2()
+    {
+        SceneManager.LoadScene("2");
+    }
+    public void Restart3()
+    {
+        SceneManager.LoadScene("3");
+    }
+    public void Restart4()
+    {
+        SceneManager.LoadScene("4");
+    }
+    public void RestartBoss()
+    {
+        SceneManager.LoadScene("BOSS");
+    }
+    public void RestartEndLess()
+    {
+        SceneManager.LoadScene("EndLess");
     }
     public void MainMenu()
     {
@@ -208,9 +252,11 @@ public class SimpleGameManager : MonoBehaviour
 
     void HandlePause()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             paused = !paused;
-            if(paused){
+            if (paused)
+            {
                 pauseUI.SetActive(true);
                 Time.timeScale = 0f;
             }
@@ -227,7 +273,8 @@ public class SimpleGameManager : MonoBehaviour
 
     void UpdateTime()
     {
-        if(timerTime > 0){
+        if (timerTime > 0)
+        {
             timerTime -= 1 * Time.deltaTime;
             stageTimer.text = timerTime.ToString("0");
         }
@@ -235,19 +282,26 @@ public class SimpleGameManager : MonoBehaviour
 
     void CheckTimedWin()
     {
-        if(timerTime <= 0){
+        if (timerTime <= 0)
+        {
+            Debug.Log("You Win!");
             Time.timeScale = 0f;
             WinTimeUI.SetActive(true);
+            
+
+
 
         }
     }
 
     void CheckScoreWin()
     {
-        if(score >= feedWinCondition){
+        if (score >= feedWinCondition)
+        {
+            Debug.Log("You win!!!!");
             Time.timeScale = 0f;
             WinScoreUI.SetActive(true);
-            
+
         }
     }
 
@@ -256,3 +310,4 @@ public class SimpleGameManager : MonoBehaviour
 
     }
 }
+>>>>>>> d8e328092404d41812adb1fccdb8bcb3671cd462
