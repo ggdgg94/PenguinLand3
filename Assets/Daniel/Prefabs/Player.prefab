@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  autoFill: 1
+  autoFill: 0
   life: 5
   invincilbeTimer: 0
   moveSpeed: 5
@@ -172,9 +172,9 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   lastDirection: {x: 0, y: 0, z: 0}
   maxX: 8.42
-  minX: -8.42
-  maxY: 3.33
-  minY: -3.33
+  minX: -8.85
+  maxY: 4.6
+  minY: -4.3
   tmpPosition: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   shootTimer: 0.35

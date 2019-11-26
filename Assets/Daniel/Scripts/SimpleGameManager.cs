@@ -43,6 +43,11 @@ public class SimpleGameManager : MonoBehaviour
     public bool winByFeed = false;
     public int feedWinCondition = 0;
 
+    public bool winByBoss = false;
+    [SerializeField]
+    Character bossPrefab;
+
+    Character boss;
 
     [Header("General Scene Settings")]
     //General Purpose
@@ -59,9 +64,11 @@ public class SimpleGameManager : MonoBehaviour
    */
 
     Player player;
-    Vector3 spawnPoint = new Vector3(6, -2, 0);
+    Vector3 spawnPoint = new Vector3(-8, -1.7f, 0);
     PenguinSpawner[] horde;
     public static int score = 0;
+
+
 
     void CharacterSetup()
     {
@@ -154,6 +161,15 @@ public class SimpleGameManager : MonoBehaviour
         else if (winByTime)
         {
             TimeWinSetup();
+        }else if (winByBoss)
+        {
+            Vector3 bpos = new Vector3(4, 0, 0);
+            generateCharacter = true;
+            countdownTime = false;
+            CharacterSetup();
+            SpawnSetup();
+            boss = Instantiate(bossPrefab, bpos, Quaternion.identity);
+            
         }
         else
         {
@@ -185,7 +201,13 @@ public class SimpleGameManager : MonoBehaviour
             UpdatePlayerLife();
             CheckGameState();
             UpdateScore();
-           
+
+        }else if (winByBoss)
+        {
+            UpdatePlayerLife();
+            CheckGameState();
+            UpdateScore();
+            CheckBossWin();
         }
         else
         {
@@ -198,6 +220,14 @@ public class SimpleGameManager : MonoBehaviour
 
             if (penguinSpawners != null)
                 UpdateScore();
+        }
+    }
+   void CheckBossWin()
+    {
+        if(boss.state == Character.CharacterState.Defeated)
+        {
+            WinScoreUI.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
     void CheckGameState()
@@ -250,19 +280,19 @@ public class SimpleGameManager : MonoBehaviour
     }
     public void Level2()
     {
-        SceneManager.LoadScene("2");
+        SceneManager.LoadScene("Mission2");
     }
     public void Level3()
     {
-        SceneManager.LoadScene("3");
+        SceneManager.LoadScene("Mission3");
     }
     public void Level4()
     {
-        SceneManager.LoadScene("4");
+        SceneManager.LoadScene("Mission4");
     }
     public void LevelBoss()
     {
-        SceneManager.LoadScene("BOSS");
+        SceneManager.LoadScene("MissionBoss");
     }
    
     void HandlePause()
