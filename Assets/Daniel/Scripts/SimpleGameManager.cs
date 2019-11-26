@@ -59,7 +59,7 @@ public class SimpleGameManager : MonoBehaviour
    */
 
     Player player; 
-    Vector3 spawnPoint = new Vector3(6,-2,0);
+    Vector3 spawnPoint = new Vector3(1,0,0);
     PenguinSpawner[] horde;
     public static int score = 0;
 
@@ -236,7 +236,6 @@ public class SimpleGameManager : MonoBehaviour
     void CheckTimedWin()
     {
         if(timerTime <= 0){
-            Debug.Log("You Win!");
             Time.timeScale = 0f;
             WinTimeUI.SetActive(true);
 
@@ -246,7 +245,6 @@ public class SimpleGameManager : MonoBehaviour
     void CheckScoreWin()
     {
         if(score >= feedWinCondition){
-            Debug.Log("You win!!!!");
             Time.timeScale = 0f;
             WinScoreUI.SetActive(true);
             

@@ -657,6 +657,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cafa07a2a36da69c89c2368925c0460, type: 3}
+--- !u!1001 &6989831814924862189
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6989831816968789384, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_Name
+      value: PenguinAngelWingsOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989831816968789381, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989831816968789381, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989831816968789381, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989831816968789381, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989831816968789381, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989831816968789381, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989831816968789381, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989831816968789381, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989831816968789381, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989831816968789381, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989831816968789381, guid: 268242babedb1344c83412e3551bf5b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 268242babedb1344c83412e3551bf5b2, type: 3}
 --- !u!1001 &7016449914266592083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -831,7 +900,7 @@ PrefabInstance:
     - target: {fileID: 8644494802363120493, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}
       propertyPath: penguinSpawners.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8644494802363120493, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}
@@ -876,7 +945,7 @@ PrefabInstance:
     - target: {fileID: 8644494802363120493, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}
       propertyPath: winByTime
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8644494802363120493, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}
@@ -892,7 +961,7 @@ PrefabInstance:
     - target: {fileID: 8644494802363120493, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}
       propertyPath: winByFeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8644494802363120493, guid: c51ecd1ef33df17d6868cd44679782f1,
         type: 3}

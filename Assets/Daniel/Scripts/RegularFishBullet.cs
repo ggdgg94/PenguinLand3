@@ -24,9 +24,7 @@ public class RegularFishBullet : Bullet
 
     void OnTriggerEnter2D(Collider2D p)
     {
-        Debug.Log("Here!");
         if(p.CompareTag("Penguin") || p.CompareTag("BabyPenguin")){
-            Debug.Log("Hit!");
             gameObject.SetActive(false);
         }
     }
