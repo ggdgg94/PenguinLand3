@@ -74,7 +74,7 @@ public class SimpleGameManager : MonoBehaviour
     {
         if(winByFeed){
             generateCharacter = true;
-            feedWinCondition < 0 ? feedWinCondition = 10 : feedWinCondition = feedWinCondition;
+    // feedWinCondition < 0 ? feedWinCondition = 10 : feedWinCondition = feedWinCondition;
         }
     }
     void Start()
