@@ -185,7 +185,7 @@ public class SimpleGameManager : MonoBehaviour
             UpdatePlayerLife();
             CheckGameState();
             UpdateScore();
-
+           
         }
         else
         {
@@ -216,9 +216,29 @@ public class SimpleGameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Restart()
+    public void Restart1()
     {
-        SceneManager.LoadScene("Daniel-Test");
+        SceneManager.LoadScene("1");
+    }
+    public void Restart2()
+    {
+        SceneManager.LoadScene("2");
+    }
+    public void Restart3()
+    {
+        SceneManager.LoadScene("3");
+    }
+    public void Restart4()
+    {
+        SceneManager.LoadScene("4");
+    }
+    public void RestartBoss()
+    {
+        SceneManager.LoadScene("BOSS");
+    }
+    public void RestartEndLess()
+    {
+        SceneManager.LoadScene("EndLess");
     }
     public void MainMenu()
     {
@@ -266,6 +286,9 @@ public class SimpleGameManager : MonoBehaviour
             Debug.Log("You Win!");
             Time.timeScale = 0f;
             WinTimeUI.SetActive(true);
+            
+
+
 
         }
     }

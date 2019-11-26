@@ -35,6 +35,7 @@ public class BabyPenguin : Character
             case CharacterState.Defeated:
                 gameObject.SetActive(false);
                 Destroy(this.gameObject, 3f);
+                SoundManager.PlaySound("GetHit1");
                 break;
         }
     }
@@ -57,6 +58,7 @@ public class BabyPenguin : Character
         SetIdleAnimation(direction);
         if(player.GetComponent<Player>().state == CharacterState.Dashing)
             Fly();
+
     }
     public void Fly()
     {
@@ -90,6 +92,7 @@ public class BabyPenguin : Character
         } 
         if(p.CompareTag("Bullet") && state != CharacterState.Latching){
             life -= 1;
+            SoundManager.PlaySound("GetHit0");
         }
-     }
+    }
 }
